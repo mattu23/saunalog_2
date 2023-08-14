@@ -3,7 +3,6 @@ import { SaunalogController } from "./saunalog.controller";
 import { SaunalogService } from "./saunalog.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Saunalog } from "src/entities/saunalog.entity";
-import { CreateSaunalogDto } from "src/dto/create-saunalog.dto";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Saunalog])],

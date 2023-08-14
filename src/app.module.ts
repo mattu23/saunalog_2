@@ -10,7 +10,7 @@ import { SaunalogModule } from './saunalog/saunalog.module';
 @Module({
   //usersModuleを一旦削除しています
   imports: [TypeOrmModule.forRoot(ormConfig), SaunalogModule],
-  // controllers: [],
-  // providers: [],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsString, Max, MaxLength, Min } from "class-validator";
+import { IsInt, IsNotEmpty, IsNumber, IsString, Max, MaxLength, Min } from "class-validator";
 
 export class CreateSaunalogDto {
   // id: number;
@@ -11,7 +11,7 @@ export class CreateSaunalogDto {
   @IsNotEmpty()
   area: string;
 
-  @IsInt()
+  @IsNumber()
   @Min(1)
   @Max(5)
   @IsNotEmpty()
