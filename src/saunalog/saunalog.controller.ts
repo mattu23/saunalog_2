@@ -28,15 +28,18 @@ export class SaunalogController {
   }
 
   @Post()
-  // postData(@Body() saunalog: CreateSaunalogDto) {
-    postData(
-      @Body('name') name: string,
-      @Body('area') area: string,
-      @Body('rank') rank: number,
-      @Body('comment') comment: string,
-    ) {
-    return this.saunalogService.store(name, area, rank, comment);
-  }
+    postData(@Body() CreateSaunalogDto: CreateSaunalogDto) {
+      const { name, area, rank, comment } = CreateSaunalogDto;
+      return this.saunalogService.store(name, area, rank, comment);
+    }
+  //   postData(
+  //     @Body('name') name: string,
+  //     @Body('area') area: string,
+  //     @Body('rank') rank: number,
+  //     @Body('comment') comment: string,
+  //   ) {
+  //   return this.saunalogService.store(name, area, rank, comment);
+  // }
 
   @Put(':id')
   update(
