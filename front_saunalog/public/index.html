@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>サウナログ</title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="app">
+      <h2>サウナ記録</h2>
+      <form v-on:submit.prevent>
+        <input type="text" v-model="newItem">
+        <button v-on:click="addList">追加</button>
+      </form>
+      <pre>{{ $data }}</pre>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="src/main.js"></script>
   </body>
 </html>
+
