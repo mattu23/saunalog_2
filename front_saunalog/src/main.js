@@ -21,6 +21,7 @@ const app = Vue.createApp({
   methods: {
     addList: function(event) {
       console.log('Clicked!')
+      if(this.newItem === '') return
       let saunalog = {
         item: this.newItem
       }

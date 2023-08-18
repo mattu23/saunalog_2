@@ -15,6 +15,11 @@
         <input type="text" v-model="newItem">
         <button v-on:click="addList">追加</button>
       </form>
+      <ul>
+        <li v-for="saunalog in saunalogs">
+          <span>{{ saunalog.item }}</span>
+        </li>
+      </ul>
       <pre>{{ $data }}</pre>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
