@@ -4,13 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <!-- <link rel="stylesheet" href="main.css"> -->
     <title>サウナログ</title>
   </head>
   <body>
     <div id="#app">
       <h1>サウナログの登録</h1>
       <form v-on:submit.prevent action="" method="post">
+            <!-- ナビゲーションリンクの追加 -->
+        <div>
+          <router-link to="/">ホーム</router-link>
+          <router-link to="/about">About</router-link>
+        </div>
+        
+        <!-- ここで現在のルートに対応するコンポーネントが表示されます -->
+        <router-view></router-view>
         <div>
           <label for="name">施設名</label>
           <input type="text" v-model="newItem" id="name" name="name">
@@ -99,7 +109,18 @@
       </ul>
       <!-- <pre>{{ $data }}</pre> -->
     </div>
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/32be65b5c5.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+          // ここにdata, methodsなどの設定を書く
+      });
+      app.mount('#app');
+    </script>
   </body>
 </html>
 

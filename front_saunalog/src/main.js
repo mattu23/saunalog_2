@@ -1,5 +1,5 @@
-// import App from './App.vue'
 import { createApp } from 'vue';
+import router from './router';
 
 
 const app = createApp({
@@ -22,5 +22,7 @@ const app = createApp({
       this.saunalogs.splice(index, 1)
     }
   }
-})
-app.mount('#app')
+});
+app.mount(router);
+app.mount('#app');
+
