@@ -1,25 +1,31 @@
 <template>
-  <div id="#app">
+  <div id="app">
     <NavigationBar />
-    <MainPage />
+    <!--URLに対応したコンポーネントを表示-->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import NavigationBar from '@/components/NavigationBar.vue'
-import MainPage from '@/components/MainPage.vue'
+//import MainPage from '@/components/MainPage.vue'
 
 export default {
   name: 'App',
   components: {
     NavigationBar,
-    MainPage
+    //MainPage
   }
 }
 </script>
 
 <style>
-#app {
-  height: 100vh;
-}
+  #app {
+    height: 100vh;
+  }
+  button.transparent {
+    margin: 5px;
+    background: transparent;
+    border: none;
+  }
 </style>
