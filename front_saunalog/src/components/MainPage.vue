@@ -2,15 +2,14 @@
   <div class="main-page">
     <div class="left-menu">
       <!--サウナログリスト-->
-      <div class="log" v-for="log in saunalogList" :key="log.id">
-        <div class="log-icon">
-          <i class="fas fa-file-alt"></i>
-        </div>
-        <div class="log-name">{{ log.name }}</div>
-      </div>
+      <SaunalogItem
+        v-for="log in saunalogList"
+        v-bind:log="log"
+        v-bind:key="log.id"
+      />
       <!--サウナログ追加ボタン-->
       <button class="transparent" @click="onClickButtonAdd">
-        <i class="fas fa-plus-square"></i>サウナログを追加
+        <i class="fas fa-plus-square">サウナログを追加</i>
       </button>
     </div>
     <div class="right-view">
@@ -21,6 +20,8 @@
 
 
 <script>
+import SaunalogItem from '@/components/parts/SaunalogItem.vue'
+
 export default {
   data(){
     return {
@@ -32,8 +33,13 @@ export default {
       this.saunalogList.push({
         id: new Date().getTime().toString(16),
         name: `新規サウナログ`,
+        //マウスオーバー中かどうかの状態を管理する変数を追加
+        mouseover: false,
       })
     },
+  },
+  components: {
+    SaunalogItem,
   },
 }
 </script>
@@ -45,20 +51,6 @@ export default {
   .left-menu {
     width: 350px;
     background-color: #f7f6f3;
-  .log{
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    color: rgba(25, 23, 17, 0.6);
-    .log-icon {
-      margin-left: 10px;
-    }
-  .log-name {
-    width: 100%;
-    padding: 3px 10px;
-  }
-  }
   }
   .right-view {
     flex-grow: 1;
