@@ -3,13 +3,16 @@
   <div class="log"
     @mouseover="onMouseOver"
     @mouseleave="onMouseLeave"
-    v-bind:class="{mouseover: isMouseOver}"  
+    v-bind:class="{mouseover: isMouseOver && !log.editing}"  
   >
+    <template v-if="log.editing">
+      <input v-model="localLog.name" class="transparent" @keypress.enter="onEditEnd" />
+    </template>
+    <template v-else>
     <div class="log-icon">
       <i class="fas fa-file-alt"></i>
     </div>
     <div class="log-name">{{log.name}}</div>
-
        <div v-show="isMouseOver" class="buttons">
           <div class="button-icon">
             <i class="fas fa-sitemap"></i>
@@ -17,14 +20,14 @@
           <div class="button-icon">
             <i class="fas fa-plus-circle"></i>
           </div>
-          <div class="button-icon">
+          <div class="button-icon" @click="onClickEdit()">
             <i class="fas fa-edit"></i>
           </div>
-          <div class="button-icon" @click="onClickDelete(log)">
+          <div class="button-icon" @click="onClickDelete()">
             <i class="fas fa-trash"></i>
           </div>
         </div>
-
+    </template>
   </div>
 </template>
 
@@ -36,7 +39,16 @@ export default {
   ],
   data() {
     return {
-      isMouseOver: false   //ローカルの状態として isMouseOver を追加
+      isMouseOver: false,
+      localLog: { ...this.log }
+    }
+  },
+  watch: {
+    log: {
+      handler(newLog) {
+        this.localLog = { ...newLog };
+      },
+      deep: true
     }
   },
   methods: {
@@ -46,8 +58,14 @@ export default {
     onMouseLeave: function() {
       this.isMouseOver = false;   //log.mouseover を isMouseOver に変更
     },
-    onClickDelete: function(log) {
-      this.$emit('delete', log);
+    onClickDelete: function() {
+      this.$emit('delete', this.localLog);
+    },
+    onClickEdit: function() {
+      this.$emit('editStart', this.localLog);
+    },
+    onEditEnd: function() {
+      this.$emit('editEnd', this.localLog);
     },
   },
 }
