@@ -9,6 +9,22 @@
       <i class="fas fa-file-alt"></i>
     </div>
     <div class="log-name">{{log.name}}</div>
+
+       <div v-show="isMouseOver" class="buttons">
+          <div class="button-icon">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <div class="button-icon">
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="button-icon">
+            <i class="fas fa-edit"></i>
+          </div>
+          <div class="button-icon" @click="onClickDelete(log)">
+            <i class="fas fa-trash"></i>
+          </div>
+        </div>
+
   </div>
 </template>
 
@@ -29,6 +45,9 @@ export default {
     },
     onMouseLeave: function() {
       this.isMouseOver = false;   //log.mouseover を isMouseOver に変更
+    },
+    onClickDelete: function(log) {
+      this.$emit('delete', log);
     },
   },
 }
@@ -52,6 +71,15 @@ export default {
   .log-name {
     width: 100%;
     padding: 3px 10px;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    .button-icon {
+      padding: 3px;
+      margin-left: 3px;
+      border-radius: 5px;
+    }
   }
 }
 </style>

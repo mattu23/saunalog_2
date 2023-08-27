@@ -6,6 +6,7 @@
         v-for="log in saunalogList"
         v-bind:log="log"
         v-bind:key="log.id"
+        @delete="onDeleteLog"
       />
       <!--サウナログ追加ボタン-->
       <button class="transparent" @click="onClickButtonAdd">
@@ -36,6 +37,10 @@ export default {
         //マウスオーバー中かどうかの状態を管理する変数を追加
         mouseover: false,
       })
+    },
+    onDeleteLog: function(deleteLog) {
+      const index = this.saunalogList.indexOf(deleteLog);
+      this.saunalogList.splice(index, 1);
     },
   },
   components: {
