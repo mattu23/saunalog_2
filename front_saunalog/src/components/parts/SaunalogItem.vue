@@ -3,7 +3,8 @@
   <div class="log"
     @mouseover="onMouseOver"
     @mouseleave="onMouseLeave"
-    v-bind:class="{mouseover: isMouseOver && !log.editing}"  
+    @click="onSelect(log)"
+    v-bind:class="{mouseover: isMouseOver && !log.editing, selected: log.selected}"  
   >
     <template v-if="log.editing">
       <input v-model="localLog.name" class="transparent" @keypress.enter="onEditEnd" />
@@ -14,12 +15,6 @@
     </div>
     <div class="log-name">{{log.name}}</div>
        <div v-show="isMouseOver" class="buttons">
-          <div class="button-icon">
-            <i class="fas fa-sitemap"></i>
-          </div>
-          <div class="button-icon">
-            <i class="fas fa-plus-circle"></i>
-          </div>
           <div class="button-icon" @click="onClickEdit()">
             <i class="fas fa-edit"></i>
           </div>
@@ -58,6 +53,9 @@ export default {
     onMouseLeave: function() {
       this.isMouseOver = false;   //log.mouseover を isMouseOver に変更
     },
+    onSelect: function(log) {
+      this.$emit('select', log);
+    },
     onClickDelete: function() {
       this.$emit('delete', this.localLog);
     },
@@ -82,6 +80,11 @@ export default {
   &.mouseover {
     background-color: rgb(232, 231, 228);
     cursor: pointer;
+  }
+  &.selected {
+    color: black;
+    background-color: rgb(232, 231, 228);
+    font-weight: 600;
   }
   .log-icon {
     margin-left: 10px;

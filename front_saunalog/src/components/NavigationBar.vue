@@ -2,7 +2,7 @@
   <!-- ナビゲーションバーをダークテーマで作成 -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- タイトル -->
-    <a class="navbar-brand" href="/main">サウナログ</a>
+    <a class="navbar-brand" href="/main">〜サウナログ〜</a>
 
     <!-- 画面サイズに応じて折りたたむ設定  -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,6 @@
 
 
   <div class="navigation-bar">
-    ナビゲーションバーです
   </div>
 </template>
 
@@ -43,7 +42,7 @@ export default {
 
 <style scoped>
 .navigation-bar {
-  height: 60px;
+  height: 0px;
   /* color: white;
   background-color: #6c757d; */
 }
