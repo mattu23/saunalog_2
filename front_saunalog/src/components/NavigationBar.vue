@@ -14,25 +14,24 @@
       <ul class="navbar-nav">
         <!-- 登録リストページへのリンク -->
         <li class="nav-item">
-          <a class="nav-link" href="/main"><i class="fa-solid fa-laptop"></i>登録リスト</a>
+          <a class="nav-link" href="/main"><i class="fa-solid fa-laptop"></i> 登録リスト </a>
         </li>
 
         <!-- 学習ページへのリンク -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-            <i class="fa-solid fa-id-card"></i>ログイン
+            <i class="fa-solid fa-id-card"> ログイン </i>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/login">ログイン</a></li>
+            <li><a class="dropdown-item" href="/login">ログアウト</a></li>
+            <li><a class="dropdown-item" href="/login">設定</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </nav>
 
-
-  <div class="navigation-bar">
-  </div>
 </template>
 
 <script>
