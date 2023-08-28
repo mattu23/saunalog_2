@@ -13,7 +13,7 @@
       />
       <!--サウナログ追加ボタン-->
       <button class="transparent" @click="onClickButtonAdd">
-        <i class="fas fa-plus-square">サウナログを追加</i>
+        <i class="fas fa-plus-square">  サウナログを追加</i>
       </button>
     </div>
     <div class="right-view" @click.self="onEditLogEnd()">
