@@ -1,5 +1,5 @@
 <template>
-  <div class="userLogin">
+  <div class="list-view">
   </div>
 </template>
 

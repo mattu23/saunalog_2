@@ -12,15 +12,18 @@
     <!-- メニュー全体 -->
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav">
-        <!-- 登録リストページへのリンク -->
+
         <li class="nav-item">
-          <a class="nav-link" href="/main"><i class="fa-solid fa-laptop"></i> 登録リスト </a>
+          <a class="nav-link" href="./RegisterSaunalog.vue"><i class="fa-regular fa-clipboard"> 登録ページ </i></a>
         </li>
 
-        <!-- 学習ページへのリンク -->
+        <li class="nav-item">
+          <a class="nav-link" href="./MyList.vue"><i class="fa-solid fa-list"> マイリスト </i></a>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-            <i class="fa-solid fa-id-card"> ログイン </i>
+            <i class="fa-solid fa-user"> ログイン </i>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/login">ログイン</a></li>

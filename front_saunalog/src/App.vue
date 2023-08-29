@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <NavigationBar />
+    <MyList />
+    <RegisterSaunalog />
+    <UserLogin />
     <!--URLに対応したコンポーネントを表示-->
     <router-view></router-view>
   </div>
@@ -8,12 +11,18 @@
 
 <script>
 import NavigationBar from '@/components/NavigationBar.vue'
+import MyList from '@/components/MyList.vue'
+import RegisterSaunalog from '@/components/RegisterSaunalog.vue'
+import UserLogin from '@/components/UserLogin.vue'
 //import MainPage from '@/components/MainPage.vue'
 
 export default {
   name: 'App',
   components: {
     NavigationBar,
+    MyList,
+    RegisterSaunalog,
+    UserLogin,
     //MainPage
   }
 }
