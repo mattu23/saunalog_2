@@ -13,13 +13,13 @@
       />
       <!--サウナログ追加ボタン-->
       <button class="transparent" @click="onClickButtonAdd">
-        <i class="fas fa-plus-square">  サウナログを新規登録</i>
+        <i class="fas fa-plus-square">  サウナログを新規追加 </i>
       </button>
     </div>
     <div class="right-view" @click.self="onEditLogEnd()">
       <template v-if="selectedLog === null">
         <div class="no-selected-log">
-          <h3>ログを新たに登録するか、選択してください</h3>
+          <h3>ログを新たに追加するか、選択してください</h3>
         </div>
       </template>
       <template v-else>
@@ -100,6 +100,11 @@
         <div class="input-saunalog">
           <label for="log-comment"> コメント： </label>
           <textarea id="log-comment" name="log-comment"></textarea>
+        </div>
+        <div class="input-saunalog">
+          <button class="log-register">
+            <i>登録する</i>
+          </button>
         </div>
       </template>
     </div>
