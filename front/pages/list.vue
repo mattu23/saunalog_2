@@ -14,14 +14,24 @@
                   ></v-card-title
                 >
                 <v-btn
-                  style="margin-bottom: 12px"
+                  to="edit"
+                  color="green"
+                  style="margin-bottom: 20px"
                   nuxt
                 >
-                  詳細
+                  編集
+                </v-btn>
+                <v-btn
+                  to="list"
+                  color="red"
+                  style="margin-bottom: 20px"
+                  nuxt
+                >
+                  削除
                 </v-btn>
                 <v-btn
                   to="/"
-                  style="margin-bottom: 12px"
+                  style="margin-bottom: 20px"
                   nuxt
                 >
                   戻る

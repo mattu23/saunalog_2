@@ -4,6 +4,7 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _146ac726 = () => interopDefault(import('../pages/edit.vue' /* webpackChunkName: "pages/edit" */))
 const _05229fba = () => interopDefault(import('../pages/list.vue' /* webpackChunkName: "pages/list" */))
 const _1adb9d82 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _8ab45134 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
@@ -20,6 +21,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/edit",
+    component: _146ac726,
+    name: "edit"
+  }, {
     path: "/list",
     component: _05229fba,
     name: "list"

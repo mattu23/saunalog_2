@@ -2,7 +2,7 @@
   <v-layout align-center justify-center>
     <v-card elevation="16" width="600px" class="mx-auto mt-5" color="" shaped>
       <v-card-title>
-        <h2 class="mx-auto">サウナログの登録</h2>
+        <h2 class="mx-auto">登録ログを編集</h2>
       </v-card-title>
       <v-card-text>
         <v-form>
@@ -35,20 +35,17 @@
           <v-card-actions>
             <v-btn
               dark
-              to="list"
               color="green darken-1"
               class="font-weight-bold"
-              >登録</v-btn
+              >更新</v-btn
             >
-          </v-card-actions>
-          <v-card-actions>
             <v-btn
               dark
-              to="/"
-              color="green darken-1"
+              to="list"
               class="font-weight-bold"
               >戻る</v-btn
             >
+            
           </v-card-actions>
         </v-form>
       </v-card-text>
