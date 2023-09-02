@@ -14,16 +14,18 @@
                   ></v-card-title
                 >
                 <v-btn
+                  dark
                   to="edit"
-                  color="green"
+                  color="green darken-1"
                   style="margin-bottom: 20px"
                   nuxt
                 >
                   編集
                 </v-btn>
                 <v-btn
+                  dark
                   to="list"
-                  color="red"
+                  color="green darken-1"
                   style="margin-bottom: 20px"
                   nuxt
                 >

@@ -40,7 +40,6 @@
               >更新</v-btn
             >
             <v-btn
-              dark
               to="list"
               class="font-weight-bold"
               >戻る</v-btn
