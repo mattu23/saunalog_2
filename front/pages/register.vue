@@ -7,24 +7,28 @@
       <v-card-text>
         <v-form>
           <v-text-field
+            v-model="name"
             prepend-icon="mdi-account-circle"
             label="name"
             placeholder="勝どきの湯"
             counter="20"
           ></v-text-field>
           <v-text-field
+            v-model="area"
             prepend-icon="mdi-cellphone"
             label="area"
             placeholder="東京都 中央区"
             counter="20"
           ></v-text-field>
           <v-select
+            v-model="rank"
             prepend-icon="mdi-cellphone"
             label="rank"
             :items="numbers"
             placeholder="3"
           ></v-select>
           <v-textarea
+            v-model="comment"
             prepend-icon="mdi-cellphone"
             label="comment"
             placeholder=""
@@ -35,7 +39,6 @@
           <v-card-actions>
             <v-btn
               dark
-              to="list"
               color="green darken-1"
               class="font-weight-bold"
               >登録</v-btn
@@ -47,6 +50,7 @@
               to="/"
               color="green darken-1"
               class="font-weight-bold"
+              @click="submitForm"
               >戻る</v-btn
             >
           </v-card-actions>
@@ -60,8 +64,18 @@
 export default {
   data() {
     return {
+      name: '',
+      area: '',
+      rank: null,
+      comment: '',
       numbers: [1,2,3,4,5]
     };
+  },
+  methods: {
+    submitForm() {
+    }
   }
 };
+
+
 </script>
