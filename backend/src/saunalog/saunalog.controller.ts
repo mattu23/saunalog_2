@@ -9,8 +9,8 @@ import {
   Put,
 } from '@nestjs/common';
 import { SaunalogService } from './saunalog.service';
-import { CreateSaunalogDto } from 'backend/src/dto/create-saunalog.dto';
-import { Saunalog } from 'backend/src/entities/saunalog.entity';
+import { CreateSaunalogDto } from 'src/dto/create-saunalog.dto';
+import { Saunalog } from 'src/entities/saunalog.entity';
 
 // type Body = {
 //   name: string;
@@ -24,6 +24,7 @@ export class SaunalogController {
 
   @Get()
   getData() {
+    console.log('hoge');
     return this.saunalogService.get();
   }
 
