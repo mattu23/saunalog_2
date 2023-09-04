@@ -4,14 +4,10 @@
       <v-card width="600px">
         <h1>登録リスト一覧</h1>
         <v-container>
-          <v-row dense v-for="log in saunaLogs" :key="log.id">
+          <v-row dense>
             <v-col>
-              <v-card class="mt-5" elevation="6">
-                <v-card-title class="text-h5">{{ log.name }}</v-card-title>
-                <v-card-title class="text-h5">{{ log.area }}</v-card-title>
-                <v-card-title class="text-h5">{{ log.rank }}</v-card-title>
-                <v-card-title class="text-h5">{{ log.comment }}</v-card-title>
-                <v-card-actions>
+              <v-card v-for="log in saunaLogs" :key="log.id" class="mt-5" elevation="6">
+                <v-card-title class="text-h5">{{ log.name }}:{{ log.area }}:{{ log.rank }}:{{ log.comment }}</v-card-title>
                   <v-btn
                     dark
                     :to="`edit/${log.id}`"
@@ -23,9 +19,9 @@
                   </v-btn>
                   <v-btn
                     dark
-                    @click="deleteLog(log.id)"
                     color="green darken-1"
                     style="margin-bottom: 20px"
+                    @click="deleteLog(log.id)"
                   >
                     削除
                   </v-btn>
@@ -36,7 +32,6 @@
                   >
                     戻る
                   </v-btn>
-                </v-card-actions>
               </v-card>
             </v-col>
           </v-row>
@@ -47,28 +42,25 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       saunaLogs: [],
     };
   },
-    async mounted() {
-      try {
-        const response = await this.$axios.get('http://localhost:3000/saunalog/');
-        if(response.status === 200) {
-          this.saunaLogs = response.data;
-        } else {
-          console.error('Error fetching logs:', response.data);
-        }
-      } catch(error) {
-        console.error('API call failed:', error);
-      }
+    created() {
+      this.$axios.get('http://localhost:3001/saunalog').then((response) => {
+        console.log(response);
+        console.log(response.data);
+        this.saunaLogs = response.data
+      
+      })
     },
     methods: {
     async deleteLog(id) {
       try {
-        const response = await this.$axios.delete(`http://localhost:3000/saunalog/${id}`);
+        const response = await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
         if(response.status === 200) {
           this.saunaLogs = this.saunaLogs.filter(log => log.id !== id);
         } else {

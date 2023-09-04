@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     registerLog() {
-      this.$axios.post('http://localhost:3000/saunalog', {
+      this.$axios.post('http://localhost:3001/saunalog', {
         name: this.log.name,
         area: this.log.area,
         rank: this.log.rank,
