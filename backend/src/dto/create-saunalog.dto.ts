@@ -4,7 +4,7 @@ export class CreateSaunalogDto {
   // id: number;
   @IsString()
   @IsNotEmpty()
-  @MaxLength(40)
+  @MaxLength(20)
   name: string;
 
   @IsString()
@@ -19,6 +19,6 @@ export class CreateSaunalogDto {
 
   @IsString()
   @IsNotEmpty()
-  @MaxLength(200)
+  @MaxLength(100)
   comment: string;
 }

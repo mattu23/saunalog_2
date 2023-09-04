@@ -1,6 +1,6 @@
-import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
+const MysqlConnectionOptions = require('typeorm/driver/mysql/MysqlConnectionOptions').MysqlConnectionOptions;
 
-const options: MysqlConnectionOptions = {
+const options = {
   type: 'mysql',
   host: '127.0.0.1',
   port: 3306,

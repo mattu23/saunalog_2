@@ -9,7 +9,7 @@
           <v-card-actions>
             <v-row style="text-align: center">
               <v-col>
-                <v-btn to="/register"  class="primary my-5" min-width="250">ログインまたは新規登録</v-btn>
+                <v-btn to="/register"  class="primary my-5" min-width="250">データの登録</v-btn>
               </v-col>
             </v-row>
           </v-card-actions>
@@ -18,7 +18,7 @@
           <v-card-actions>
             <v-row style="text-align: center">
               <v-col>
-                <v-btn to="/list"  class="primary my-5" min-width="200">登録リストを見る</v-btn>
+                <v-btn to="/list"  class="primary my-5" min-width="200">登録一覧を見る</v-btn>
               </v-col>
             </v-row>
           </v-card-actions>
