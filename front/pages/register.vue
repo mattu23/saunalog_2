@@ -83,7 +83,7 @@ export default {
         comment: this.log.comment,
       })
       .then((response) => {
-        if(response.status === 200) {
+        if(response.status >= 200 && response.status < 300) {
           this.$router.push('/list');
         } else {
           console.error('Error registering log:', response.data);

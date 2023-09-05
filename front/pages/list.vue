@@ -7,7 +7,18 @@
           <v-row dense>
             <v-col>
               <v-card v-for="log in saunaLogs" :key="log.id" class="mt-5" elevation="6">
-                <v-card-title class="text-h5">{{ log.name }}:{{ log.area }}:{{ log.rank }}:{{ log.comment }}</v-card-title>
+                <v-card-title class="text-h5">
+                 施設名： {{ log.name }}
+                </v-card-title>
+                <v-card-title class="text-h5">
+                 エリア： {{ log.area }}
+                </v-card-title>
+                <v-card-title class="text-h5">
+                 評価（5段階）： {{ log.rank }}
+                </v-card-title>
+                <v-card-title class="text-h5">
+                 コメント：{{ log.comment }}
+                </v-card-title>
                   <v-btn
                     dark
                     :to="`edit/${log.id}`"
@@ -25,17 +36,17 @@
                   >
                     削除
                   </v-btn>
-                  <v-btn
-                    to="/"
-                    style="margin-bottom: 20px"
-                    nuxt
-                  >
-                    戻る
-                  </v-btn>
               </v-card>
             </v-col>
           </v-row>
         </v-container>
+        <v-btn
+         to="/"
+         style="margin-bottom: 20px"
+         nuxt
+         >
+         戻る
+        </v-btn>
       </v-card>
     </v-layout>
   </div>
@@ -51,17 +62,14 @@ export default {
   },
     created() {
       this.$axios.get('http://localhost:3001/saunalog').then((response) => {
-        console.log(response);
-        console.log(response.data);
         this.saunaLogs = response.data
-      
       })
     },
     methods: {
     async deleteLog(id) {
       try {
         const response = await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
-        if(response.status === 200) {
+        if(response.status >= 200 && response.status < 300) {
           this.saunaLogs = this.saunaLogs.filter(log => log.id !== id);
         } else {
           console.error('Error deleting log:', response.data);
