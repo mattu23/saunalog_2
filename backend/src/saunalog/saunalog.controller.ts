@@ -24,7 +24,6 @@ export class SaunalogController {
 
   @Get()
   getData() {
-    console.log('hoge');
     return this.saunalogService.get();
   }
 

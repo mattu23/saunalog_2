@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 // import { UsersModule } from './users/users.module';
-import * as ormConfig from '../ormconfig';
+const ormConfig = require('../ormconfig');
 import { SaunalogModule } from './saunalog/saunalog.module';
 // import { SaunalogController } from './saunalog/saunalog.controller';
 // import { SaunalogService } from './saunalog/saunalog.service';
