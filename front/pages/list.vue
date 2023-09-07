@@ -60,24 +60,26 @@ export default {
       saunaLogs: [],
     };
   },
-    created() {
-      this.$axios.get('http://localhost:3001/saunalog').then((response) => {
-        this.saunaLogs = response.data
-      })
+  created() {
+    this.getLogs();
+  },
+  methods: {
+    async getLogs() {
+      try {
+        const response = await this.$axios.get('http://localhost:3001/saunalog');
+        this.saunaLogs = response.data;
+      } catch(error) {
+        alert(error);
+      }
     },
-    methods: {
     async deleteLog(id) {
       try {
-        const response = await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
-        if(response.status >= 200 && response.status < 300) {
-          this.saunaLogs = this.saunaLogs.filter(log => log.id !== id);
-        } else {
-          console.error('Error deleting log:', response.data);
-        }
+        await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
+        this.getLogs();
       } catch(error) {
-          console.error('API call for deletion failed', error);
-        }
-    },
+        alert(error);
+      }
+    }
   }
-}
+}  
 </script>
