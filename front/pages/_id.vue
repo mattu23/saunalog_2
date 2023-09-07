@@ -1,3 +1,5 @@
+
+
 <template>
   <v-layout align-center justify-center>
     <v-card elevation="16" width="600px" class="mx-auto mt-5" color="" shaped>
@@ -58,6 +60,11 @@ export default {
     return {
       numbers: [1,2,3,4,5]
     };
-  }
+  },
+  mounted() {
+    const id = this.$route.params.id;
+    console.log(id);
+  },
+
 };
 </script>

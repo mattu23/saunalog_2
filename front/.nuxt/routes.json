@@ -1,12 +1,5 @@
 [
   {
-    "name": "edit",
-    "path": "/edit",
-    "component": "/Users/matsushitahiroki/codefile/saunalog/front/pages/edit.vue",
-    "chunkName": "pages/edit",
-    "_name": "_146ac726"
-  },
-  {
     "name": "list",
     "path": "/list",
     "component": "/Users/matsushitahiroki/codefile/saunalog/front/pages/list.vue",
@@ -26,5 +19,12 @@
     "component": "/Users/matsushitahiroki/codefile/saunalog/front/pages/index.vue",
     "chunkName": "pages/index",
     "_name": "_8ab45134"
+  },
+  {
+    "name": "id",
+    "path": "/:id",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/front/pages/_id.vue",
+    "chunkName": "pages/_id",
+    "_name": "_27230964"
   }
 ]

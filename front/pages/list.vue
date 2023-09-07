@@ -14,14 +14,14 @@
                  エリア： {{ log.area }}
                 </v-card-title>
                 <v-card-title class="text-h5">
-                 評価（5段階）： {{ log.rank }}
+                 評価（5段階）: {{ log.rank }}
                 </v-card-title>
                 <v-card-title class="text-h5">
                  コメント：{{ log.comment }}
                 </v-card-title>
                   <v-btn
                     dark
-                    :to="`edit/${log.id}`"
+                    :to="`/${log.id}`"
                     color="green darken-1"
                     style="margin-bottom: 20px"
                     nuxt
