@@ -61,10 +61,10 @@ export default {
     };
   },
   created() {
-    this.getLogs();
+    this.getLogData();
   },
   methods: {
-    async getLogs() {
+    async getLogData() {
       try {
         const response = await this.$axios.get('http://localhost:3001/saunalog');
         this.saunaLogs = response.data;
@@ -75,7 +75,7 @@ export default {
     async deleteLog(id) {
       try {
         await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
-        this.getLogs();
+        this.getLogData();
       } catch(error) {
         alert(error);
       }

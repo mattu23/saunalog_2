@@ -9,27 +9,27 @@
       <v-card-text>
         <v-form>
           <v-text-field
+            v-model="log.name"
             prepend-icon="mdi-account-circle"
             label="name"
-            placeholder="勝どきの湯"
             counter="20"
           ></v-text-field>
           <v-text-field
+            v-model="log.area"
             prepend-icon="mdi-cellphone"
             label="area"
-            placeholder="東京都 中央区"
             counter="20"
           ></v-text-field>
           <v-select
+            v-model="log.rank"
             prepend-icon="mdi-cellphone"
             label="rank"
             :items="numbers"
-            placeholder="3"
           ></v-select>
           <v-textarea
+            v-model="log.comment"
             prepend-icon="mdi-cellphone"
             label="comment"
-            placeholder=""
             counter="100"
             maxlength="100"
           ></v-textarea>
@@ -58,13 +58,29 @@
 export default {
   data() {
     return {
+      log: {
+        name: '',
+        area: '',
+        rank: null,
+        comment: '',
+      },
       numbers: [1,2,3,4,5]
     };
   },
   mounted() {
     const id = this.$route.params.id;
-    console.log(id);
+    this.getLogData(id);
   },
+  methods: {
+    async getLogData(id) {
+      try {
+        const response = await this.$axios.get(`http://localhost:3001/saunalog/${id}`);
+        this.log = response.data;
+      } catch (error) {
+        alert(error);
+      }
+    } 
+  }
 
 };
 </script>
