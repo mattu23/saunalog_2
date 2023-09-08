@@ -39,6 +39,7 @@
               dark
               color="green darken-1"
               class="font-weight-bold"
+              @click="updateLog(log)"
               >更新</v-btn
             >
             <v-btn
@@ -79,8 +80,16 @@ export default {
       } catch (error) {
         alert(error);
       }
-    } 
+    },
+    async updateLog(log) {
+      try {
+        await this.$axios.put(`http://localhost:3001/saunalog/${log.id}`, this.log);
+        alert('正常に登録されました。');
+        this.$router.push('./list');
+      } catch(error) {
+        alert('更新に失敗しました。' + error);
+      }
+    }
   }
-
 };
 </script>
