@@ -68,14 +68,13 @@ export default {
       numbers: [1,2,3,4,5]
     };
   },
-  mounted() {
-    const id = this.$route.params.id;
-    this.getLogData(id);
+  created () {
+    this.loadData()
   },
   methods: {
-    async getLogData(id) {
+    async loadData() {
       try {
-        const response = await this.$axios.get(`http://localhost:3001/saunalog/${id}`);
+        const response = await this.$axios.get(`http://localhost:3001/saunalog/${this.$route.params.id}`);
         this.log = response.data;
       } catch (error) {
         alert(error);

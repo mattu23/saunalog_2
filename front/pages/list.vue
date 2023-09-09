@@ -76,6 +76,7 @@ export default {
       try {
         await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
         this.getLogData();
+        alert('データを削除しました。');
       } catch(error) {
         alert(error);
       }
