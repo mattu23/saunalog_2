@@ -68,23 +68,24 @@ export default {
       numbers: [1,2,3,4,5]
     };
   },
-  created () {
-    this.loadData()
-  },
+  // created () {
+  //   this.loadData()
+  // },
   methods: {
     async loadData() {
       try {
-        const response = await this.$axios.get(`http://localhost:3001/saunalog/${this.$route.params.id}`);
+        const response = await this.$axios.get(`http://localhost:3001/saunalog/${id}`);
         this.log = response.data;
       } catch (error) {
         alert(error);
       }
     },
-    async updateLog(log) {
+    async updateLog() {
       try {
-        await this.$axios.put(`http://localhost:3001/saunalog/${log.id}`, this.log);
+        const id = this.$route.params.id;
+        await this.$axios.put(`http://localhost:3001/saunalog/${id}`, this.log);
         alert('正常に登録されました。');
-        this.$router.push('./list');
+        this.$router.push('/list');
       } catch(error) {
         alert('更新に失敗しました。' + error);
       }
