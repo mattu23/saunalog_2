@@ -74,6 +74,7 @@ export default {
   methods: {
     async loadData() {
       try {
+        const id = this.$route.params.id;
         const response = await this.$axios.get(`http://localhost:3001/saunalog/${id}`);
         this.log = response.data;
       } catch (error) {
