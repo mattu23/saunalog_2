@@ -1,0 +1,26 @@
+[
+  {
+    "name": "list",
+    "path": "/list",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/list.vue",
+    "chunkName": "pages/list"
+  },
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/register.vue",
+    "chunkName": "pages/register"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/index.vue",
+    "chunkName": "pages/index"
+  },
+  {
+    "name": "id",
+    "path": "/:id",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/_id.vue",
+    "chunkName": "pages/_id"
+  }
+]
