@@ -47,6 +47,9 @@ export default {
   axios: {
     baseURL: 'http://localhost:3000/saunalog',
   },
+  plugins: [
+    './plugins/vee-validate.js'
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

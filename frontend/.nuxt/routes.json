@@ -3,24 +3,28 @@
     "name": "list",
     "path": "/list",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/list.vue",
-    "chunkName": "pages/list"
+    "chunkName": "pages/list",
+    "_name": "_0bc1b5eb"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/register.vue",
-    "chunkName": "pages/register"
+    "chunkName": "pages/register",
+    "_name": "_6b2e7220"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_f02cf156"
   },
   {
     "name": "id",
     "path": "/:id",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/_id.vue",
-    "chunkName": "pages/_id"
+    "chunkName": "pages/_id",
+    "_name": "_056b5afd"
   }
 ]
