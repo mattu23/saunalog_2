@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center justify-center>
-    <v-card elevation="16" width="600px" class="mx-auto mt-5" color="" shaped>
+    <v-card elevation="10" width="600px" class="mx-auto mt-5" color="" shaped>
       <v-card-title>
         <h2 class="mx-auto">サウナログの登録</h2>
       </v-card-title>
@@ -8,28 +8,28 @@
         <v-form>
           <v-text-field
             v-model="log.name"
-            prepend-icon="mdi-account-circle"
+            prepend-icon="mdi-home-variant"
             label="name"
             placeholder="勝どきの湯"
             counter="20"
           ></v-text-field>
           <v-text-field
             v-model="log.area"
-            prepend-icon="mdi-cellphone"
+            prepend-icon="mdi-map-marker"
             label="area"
             placeholder="東京都 中央区"
             counter="20"
           ></v-text-field>
           <v-select
             v-model="log.rank"
-            prepend-icon="mdi-cellphone"
+            prepend-icon="mdi-star"
             label="rank"
             :items="numbers"
             placeholder="3"
           ></v-select>
           <v-textarea
             v-model="log.comment"
-            prepend-icon="mdi-cellphone"
+            prepend-icon="mdi-tooltip"
             label="comment"
             placeholder=""
             counter="100"

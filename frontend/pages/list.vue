@@ -6,7 +6,7 @@
         <v-container>
           <v-row dense>
             <v-col>
-              <v-card v-for="log in saunaLogs" :key="log.id" class="mt-5" elevation="6">
+              <v-card v-for="log in saunaLogs" :key="log.id" class="mt-5" elevation="10">
                 <v-card-title class="text-h5">
                  施設名： {{ log.name }}
                 </v-card-title>
@@ -23,7 +23,7 @@
                     dark
                     :to="`/${log.id}`"
                     color="green darken-1"
-                    style="margin-bottom: 20px"
+                    style="margin: 10px"
                     nuxt
                   >
                     編集
@@ -31,7 +31,7 @@
                   <v-btn
                     dark
                     color="green darken-1"
-                    style="margin-bottom: 20px"
+                    style="margin-left;: 10px"
                     @click="deleteLog(log.id)"
                   >
                     削除

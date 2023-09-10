@@ -10,25 +10,25 @@
         <v-form>
           <v-text-field
             v-model="log.name"
-            prepend-icon="mdi-account-circle"
+            prepend-icon="mdi-home-variant"
             label="name"
             counter="20"
           ></v-text-field>
           <v-text-field
             v-model="log.area"
-            prepend-icon="mdi-cellphone"
+            prepend-icon="mdi-map-marker"
             label="area"
             counter="20"
           ></v-text-field>
           <v-select
             v-model="log.rank"
-            prepend-icon="mdi-cellphone"
+            prepend-icon="mdi-star"
             label="rank"
             :items="numbers"
           ></v-select>
           <v-textarea
             v-model="log.comment"
-            prepend-icon="mdi-cellphone"
+            prepend-icon="mdi-tooltip"
             label="comment"
             counter="100"
             maxlength="100"
