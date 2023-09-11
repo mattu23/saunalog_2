@@ -48,7 +48,7 @@
           <v-card-actions>
             <v-btn
               dark
-              to="/"
+              to="main"
               color="green darken-1"
               class="font-weight-bold"
               >戻る</v-btn

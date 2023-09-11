@@ -5,8 +5,10 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _0bc1b5eb = () => interopDefault(import('../pages/list.vue' /* webpackChunkName: "pages/list" */))
+const _89e7f4f4 = () => interopDefault(import('../pages/main.vue' /* webpackChunkName: "pages/main" */))
 const _6b2e7220 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
-const _f02cf156 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _32486bcf = () => interopDefault(import('../pages/auth/login.vue' /* webpackChunkName: "pages/auth/login" */))
+const _2c83e742 = () => interopDefault(import('../pages/auth/signUp.vue' /* webpackChunkName: "pages/auth/signUp" */))
 const _056b5afd = () => interopDefault(import('../pages/_id.vue' /* webpackChunkName: "pages/_id" */))
 
 const emptyFn = () => {}
@@ -25,15 +27,23 @@ export const routerOptions = {
     component: _0bc1b5eb,
     name: "list"
   }, {
+    path: "/main",
+    component: _89e7f4f4,
+    name: "main"
+  }, {
     path: "/register",
     component: _6b2e7220,
     name: "register"
   }, {
-    path: "/",
-    component: _f02cf156,
-    name: "index"
+    path: "/auth/login",
+    component: _32486bcf,
+    name: "auth-login"
   }, {
-    path: "/:id",
+    path: "/auth/signUp",
+    component: _2c83e742,
+    name: "auth-signUp"
+  }, {
+    path: "/:id?",
     component: _056b5afd,
     name: "id"
   }],

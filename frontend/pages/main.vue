@@ -10,6 +10,7 @@
             <v-row style="text-align: center">
               <v-col>
                 <v-btn to="/register"  class="primary my-5" min-width="250">データの登録</v-btn>
+                <v-btn to="/auth/login"  class="primary my-5" min-width="250">ログインまたは新規登録</v-btn>
               </v-col>
             </v-row>
           </v-card-actions>
@@ -26,12 +27,5 @@
       </v-card>
     </div>
 
-    <!-- <v-footer class="bg-grey-lighten-1" style="margin-top: 20px;">
-      <v-row justify="center" no-gutters>
-        <v-col class="text-center mt-4" cols="12">
-          {{ new Date().getFullYear() }} — <strong>Saunalog</strong>
-        </v-col>
-      </v-row>
-    </v-footer> -->
   </div>
 </template>

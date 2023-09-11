@@ -70,6 +70,29 @@ export default {
     },
   },
 
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/auth/login",
+            method: "post",
+            propertyName: "token",
+          },
+          logout: {
+            url: "/auth/logout",
+            method: "post",
+          },
+          user: {
+            url: "/auth/user",
+            method: "get",
+            propertyName: "user",
+          },
+        },
+      },
+    },
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }

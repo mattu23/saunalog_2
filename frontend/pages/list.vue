@@ -41,7 +41,7 @@
           </v-row>
         </v-container>
         <v-btn
-         to="/"
+         to="main"
          style="margin-bottom: 20px"
          nuxt
          >
