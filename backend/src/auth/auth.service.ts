@@ -1,41 +1,17 @@
 
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/user.entity';
-import { Repository } from 'typeorm';
-import { Auth0User } from './user.interface';
+import { UserRepository } from './user.repository';
+import { CreateUserDto } from './DTO/create-user.dto';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
-  ) {}
+  constructor(private userRepository: UserRepository) {}
 
-  async signUp(auth0User: Auth0User): Promise<void> {
-    const user = await this.getUser(auth0User);
-    if (!user) {
-      const user = new User();
-      user.name = auth0User.name;
-      user.email = auth0User.email;
-      user.auth0_user_id = auth0User.user_id;
-      await this.usersRepository.save(user);
-    }
-  }
-
-  async getUser(auth0User: Auth0User): Promise<User> {
-    const email = auth0User.email;
-    const user = await this.usersRepository.findOne({
-      email: email,
-    });
-    return user;
+  async signUp(CreateUserDto: CreateUserDto): Promise<User> {
+    return await this.userRepository.createUser(CreateUserDto);
   }
 }
-
-
-
-
-
 // import bcrypt = require('bcrypt');
 // import { Injectable } from '@nestjs/common';
 // import { JwtService } from '@nestjs/jwt';
