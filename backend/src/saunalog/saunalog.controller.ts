@@ -7,10 +7,12 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { SaunalogService } from './saunalog.service';
 import { CreateSaunalogDto } from 'src/dto/create-saunalog.dto';
 import { Saunalog } from 'src/entities/saunalog.entity';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 
 @Controller('saunalog')
