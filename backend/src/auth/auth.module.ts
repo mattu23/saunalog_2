@@ -15,7 +15,7 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
   JwtModule.register({
     secret: 'secretKey123',
     signOptions: {
-      expiresIn: 7200,
+      expiresIn: 3600,
     },
   }),  
 ], 

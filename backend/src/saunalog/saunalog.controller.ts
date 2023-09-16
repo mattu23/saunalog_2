@@ -16,6 +16,7 @@ import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 
 @Controller('saunalog')
+@UseGuards(JwtAuthGuard)
 export class SaunalogController {
   constructor(private readonly saunalogService: SaunalogService) {}
 
