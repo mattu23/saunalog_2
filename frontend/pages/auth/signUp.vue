@@ -66,6 +66,7 @@ export default {
         
         // 登録成功時の処理
         this.$router.push('/auth/login');
+        alert('登録が完了しました。');
       } catch (error) {
         console.error('Error during registration:', error.response.data);
         // エラーハンドリング。必要に応じてユーザーへのフィードバックを提供する処理を追加

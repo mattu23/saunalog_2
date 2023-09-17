@@ -21,7 +21,7 @@
                 </v-card-title>
                   <v-btn
                     dark
-                    :to="`/${log.id}`"
+                    :to="`/list/${log.id}`"
                     color="green darken-1"
                     style="margin: 10px"
                     nuxt
@@ -41,7 +41,7 @@
           </v-row>
         </v-container>
         <v-btn
-         to="main"
+         to="/"
          style="margin-bottom: 20px"
          nuxt
          >

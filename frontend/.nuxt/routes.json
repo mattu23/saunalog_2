@@ -2,37 +2,43 @@
   {
     "name": "list",
     "path": "/list",
-    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/list.vue",
-    "chunkName": "pages/list"
-  },
-  {
-    "name": "main",
-    "path": "/main",
-    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/main.vue",
-    "chunkName": "pages/main"
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/list/index.vue",
+    "chunkName": "pages/list/index",
+    "_name": "_3bea3fa4"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/register.vue",
-    "chunkName": "pages/register"
+    "chunkName": "pages/register",
+    "_name": "_6b2e7220"
   },
   {
     "name": "auth-login",
     "path": "/auth/login",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/auth/login.vue",
-    "chunkName": "pages/auth/login"
+    "chunkName": "pages/auth/login",
+    "_name": "_32486bcf"
   },
   {
     "name": "auth-signup",
     "path": "/auth/signup",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/auth/signup.vue",
-    "chunkName": "pages/auth/signup"
+    "chunkName": "pages/auth/signup",
+    "_name": "_631efb22"
   },
   {
-    "name": "id",
-    "path": "/:id?",
-    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/_id.vue",
-    "chunkName": "pages/_id"
+    "name": "index",
+    "path": "/",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_f02cf156"
+  },
+  {
+    "name": "list-id",
+    "path": "/list/:id",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/list/_id.vue",
+    "chunkName": "pages/list/_id",
+    "_name": "_4ce1d3d4"
   }
 ]

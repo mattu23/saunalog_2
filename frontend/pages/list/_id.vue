@@ -43,7 +43,7 @@
               >更新</v-btn
             >
             <v-btn
-              to="list"
+              to="/list"
               class="font-weight-bold"
               >戻る</v-btn
             >

@@ -4,12 +4,12 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _0bc1b5eb = () => interopDefault(import('../pages/list.vue' /* webpackChunkName: "pages/list" */))
-const _89e7f4f4 = () => interopDefault(import('../pages/main.vue' /* webpackChunkName: "pages/main" */))
+const _3bea3fa4 = () => interopDefault(import('../pages/list/index.vue' /* webpackChunkName: "pages/list/index" */))
 const _6b2e7220 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _32486bcf = () => interopDefault(import('../pages/auth/login.vue' /* webpackChunkName: "pages/auth/login" */))
 const _631efb22 = () => interopDefault(import('../pages/auth/signup.vue' /* webpackChunkName: "pages/auth/signup" */))
-const _056b5afd = () => interopDefault(import('../pages/_id.vue' /* webpackChunkName: "pages/_id" */))
+const _f02cf156 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _4ce1d3d4 = () => interopDefault(import('../pages/list/_id.vue' /* webpackChunkName: "pages/list/_id" */))
 
 const emptyFn = () => {}
 
@@ -24,12 +24,8 @@ export const routerOptions = {
 
   routes: [{
     path: "/list",
-    component: _0bc1b5eb,
+    component: _3bea3fa4,
     name: "list"
-  }, {
-    path: "/main",
-    component: _89e7f4f4,
-    name: "main"
   }, {
     path: "/register",
     component: _6b2e7220,
@@ -43,9 +39,13 @@ export const routerOptions = {
     component: _631efb22,
     name: "auth-signup"
   }, {
-    path: "/:id?",
-    component: _056b5afd,
-    name: "id"
+    path: "/",
+    component: _f02cf156,
+    name: "index"
+  }, {
+    path: "/list/:id",
+    component: _4ce1d3d4,
+    name: "list-id"
   }],
 
   fallback: false

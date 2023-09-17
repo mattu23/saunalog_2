@@ -72,6 +72,9 @@ export default {
   },
 
   auth: {
+    redirect: {
+      home: '/list'
+    },
     strategies: {
       local: {
         endpoints: {
@@ -80,15 +83,8 @@ export default {
             method: "post",
             propertyName: "accessToken",
           },
-          logout: {
-            url: "/auth/logout",
-            method: "post",
-          },
-          user: {
-            url: "/auth/user",
-            method: "get",
-            propertyName: "user",
-          },
+          logout: false,
+          user: false,
         },
       },
     },
