@@ -27,7 +27,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  // plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -43,9 +43,10 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
   axios: {
-    baseURL: 'http://localhost:3000/saunalog',
+    baseURL: 'http://localhost:3001/saunalog',
   },
   plugins: [
     './plugins/vee-validate.js'
@@ -77,7 +78,7 @@ export default {
           login: {
             url: "/auth/login",
             method: "post",
-            propertyName: "token",
+            propertyName: "accessToken",
           },
           logout: {
             url: "/auth/logout",

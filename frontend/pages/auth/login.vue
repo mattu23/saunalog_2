@@ -7,10 +7,10 @@
       <v-card-text>
         <v-form>
           <v-text-field
-            prepend-icon="mdi-email-outline"
-            label="email"
-            placeholder="xxx@xxx.co.jp"
-            counter="30"
+            prepend-icon="mdi-account-circle"
+            label="name"
+            placeholder="田中 花男"
+            counter="16"
           ></v-text-field>
           <v-text-field
             prepend-icon="mdi-lock"
@@ -45,7 +45,7 @@
   },
   methods: {
     async login() {
-      await this.$auth.loginWith('auth0').then(
+      await this.$auth.loginWith('local').then(
         (responce) => {
           return responce
         },
