@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString, Matches, MaxLength, MinLength } from "class-valid
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
-  @MaxLength(20)
+  @MaxLength(16)
   name: string;
 
   @IsString()

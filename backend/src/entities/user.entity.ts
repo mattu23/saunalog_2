@@ -6,7 +6,7 @@ export class User {
   @PrimaryGeneratedColumn({ type: 'int', unsigned: false })
   id: number;
 
-  @Column({ length: 20, charset: 'utf8' })
+  @Column({ length: 16, charset: 'utf8' })
   name: string;
 
   @Column()
