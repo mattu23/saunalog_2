@@ -3,6 +3,7 @@
     <v-layout justify-center>
       <v-card width="600px">
         <h1>登録リスト一覧</h1>
+        <v-btn to="/register"  class="primary my-5" min-width="250" style="margin: 10px;">サウナログの新規登録</v-btn>
         <v-container>
           <v-row dense>
             <v-col>
@@ -42,10 +43,10 @@
         </v-container>
         <v-btn
          to="/"
-         style="margin-bottom: 20px"
+         style="margin: 20px"
          nuxt
          >
-         戻る
+         ログアウト
         </v-btn>
       </v-card>
     </v-layout>

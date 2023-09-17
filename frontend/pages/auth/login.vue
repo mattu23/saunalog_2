@@ -10,10 +10,13 @@
             v-model="user.name"
             prepend-icon="mdi-account-circle"
             label="name"
-            placeholder="田中 花男"
+            placeholder="山田 太郎"
             counter="16"
           ></v-text-field>
           <v-text-field
+            v-bind:type="showPassword ? 'text' : 'password'"
+            v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showPassword = !showPassword"
             v-model="user.password"
             prepend-icon="mdi-lock"
             label="password"
@@ -21,8 +24,8 @@
             counter="32"
           ></v-text-field>
           <v-card-actions>
-            <v-btn class="primary" @click="login">ログイン</v-btn>
-            <v-btn to="/">戻る</v-btn>
+            <v-btn class="primary" @click="login" >ログイン</v-btn>
+            <v-btn to="/" >戻る</v-btn>
           </v-card-actions>
         </v-form>
         <p>
