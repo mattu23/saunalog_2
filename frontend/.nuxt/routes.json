@@ -24,10 +24,10 @@
     "chunkName": "pages/auth/login"
   },
   {
-    "name": "auth-signUp",
-    "path": "/auth/signUp",
-    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/auth/signUp.vue",
-    "chunkName": "pages/auth/signUp"
+    "name": "auth-signup",
+    "path": "/auth/signup",
+    "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/auth/signup.vue",
+    "chunkName": "pages/auth/signup"
   },
   {
     "name": "id",

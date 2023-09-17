@@ -8,7 +8,7 @@ const _0bc1b5eb = () => interopDefault(import('../pages/list.vue' /* webpackChun
 const _89e7f4f4 = () => interopDefault(import('../pages/main.vue' /* webpackChunkName: "pages/main" */))
 const _6b2e7220 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _32486bcf = () => interopDefault(import('../pages/auth/login.vue' /* webpackChunkName: "pages/auth/login" */))
-const _2c83e742 = () => interopDefault(import('../pages/auth/signUp.vue' /* webpackChunkName: "pages/auth/signUp" */))
+const _631efb22 = () => interopDefault(import('../pages/auth/signup.vue' /* webpackChunkName: "pages/auth/signup" */))
 const _056b5afd = () => interopDefault(import('../pages/_id.vue' /* webpackChunkName: "pages/_id" */))
 
 const emptyFn = () => {}
@@ -39,9 +39,9 @@ export const routerOptions = {
     component: _32486bcf,
     name: "auth-login"
   }, {
-    path: "/auth/signUp",
-    component: _2c83e742,
-    name: "auth-signUp"
+    path: "/auth/signup",
+    component: _631efb22,
+    name: "auth-signup"
   }, {
     path: "/:id?",
     component: _056b5afd,

@@ -11,7 +11,7 @@
             label="name"
             placeholder="山田 太郎"
             counter="16"
-            v-model="user.username"
+            v-model="user.name"
           ></v-text-field>
           <v-text-field
             prepend-icon="mdi-email-outline"
@@ -49,7 +49,7 @@ export default {
     return {
       showPassword: false,
       user: {
-        username: '',
+        name: '',
         email: '',
         password: '',
       },
@@ -57,12 +57,19 @@ export default {
   },
   methods: {
     async createUser() {
-      await this.$axios.post('http://localhost:3000/auth/signUp', {
-        username: this.user.username,
-        email: this.user.email,
-        password: this.user.password,
-      })
-      await this.$router.push('/auth/login')
+      try {
+        await this.$axios.post('http://localhost:3001/saunalog/auth/signup', {
+          name: this.user.name,
+          email: this.user.email,
+          password: this.user.password,
+        });
+        
+        // 登録成功時の処理
+        this.$router.push('/auth/login');
+      } catch (error) {
+        console.error('Error during registration:', error.response.data);
+        // エラーハンドリング。必要に応じてユーザーへのフィードバックを提供する処理を追加
+      }
     },
   },
 }
