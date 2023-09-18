@@ -15,10 +15,12 @@
                  エリア： {{ log.area }}
                 </v-card-title>
                 <v-card-title class="text-h5">
-                 評価（5段階）: {{ log.rank }}
+                 評価 : {{ log.rank }}
                 </v-card-title>
                 <v-card-title class="text-h5">
-                 コメント：{{ log.comment }}
+                 コメント：
+                 <br>
+                 {{ log.comment }}
                 </v-card-title>
                   <v-btn
                     dark

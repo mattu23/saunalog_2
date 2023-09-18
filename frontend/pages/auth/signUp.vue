@@ -68,7 +68,7 @@ export default {
         alert('登録が完了しました。');
       } catch (error) {
         console.error('Error during registration:', error.response.data);
-        // エラーハンドリング。必要に応じてユーザーへのフィードバックを提供する処理を追加
+        alert('登録ができませんでした。もう一度確認してください。')
       }
     },
   },

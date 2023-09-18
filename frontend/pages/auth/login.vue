@@ -29,7 +29,7 @@
           </v-card-actions>
         </v-form>
         <p>
-          新規登録は<nuxt-link to="/auth/signUp">こちら</nuxt-link>
+          新規登録は<nuxt-link to="/auth/signup">こちら</nuxt-link>
         </p>
       </v-card-text>
     </v-card>
