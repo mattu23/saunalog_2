@@ -68,9 +68,6 @@ export default {
       numbers: [1,2,3,4,5]
     };
   },
-  // created () {
-  //   this.loadData()
-  // },
   methods: {
     async loadData() {
       try {

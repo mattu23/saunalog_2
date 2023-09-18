@@ -46,7 +46,7 @@
          style="margin: 20px"
          nuxt
          >
-         ログアウト
+         トップページへ戻る
         </v-btn>
       </v-card>
     </v-layout>

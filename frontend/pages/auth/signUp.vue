@@ -44,7 +44,6 @@
 <script>
 export default {
   auth: false,
-  layout: 'home',
   data() {
     return {
       showPassword: false,

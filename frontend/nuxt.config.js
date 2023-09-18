@@ -89,5 +89,10 @@ export default {
       },
     },
   },
+
+  // router: {
+  //   middleware: ['auth'],
+  // },
+  
   build: {},
 }

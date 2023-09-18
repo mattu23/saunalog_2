@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column justify-center align-center min-vh-100">
     <div style="flex-grow: 1;" >
-      <v-card elevation="16" width="700px" class="mx-auto mt-5" shaped>
+      <v-card elevation="16" width="900px" class="mx-auto mt-5" shaped>
         <v-card-title>
           <h2 class="mx-auto">Welcome to Saunalog！</h2>
         </v-card-title>
@@ -14,7 +14,7 @@
             </v-row>
           </v-card-actions>
         </v-card-text>
-        <!-- <v-card-text>
+        <v-card-text>
           <v-card-actions>
             <v-row style="text-align: center">
               <v-col>
@@ -22,7 +22,7 @@
               </v-col>
             </v-row>
           </v-card-actions>
-        </v-card-text> -->
+        </v-card-text>
       </v-card>
     </div>
 
