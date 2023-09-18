@@ -48,14 +48,18 @@
     }
   },
   methods: {
-     login() {
-       this.$auth.loginWith('local', {
-        data: this.user
-      })
-      .catch(error => {
-        console.log('error');
-        console.log(error);
-      });
+     async login() {
+       try {
+         await this.$auth.loginWith('local', {
+           data: this.user
+         });
+         // ログイン成功時のアラート
+         alert('ログインに成功しました!');
+       } catch (error) {
+         // ログイン失敗時のアラート
+         alert('ログインに失敗しました');
+         console.log('Login error:', error);
+       }
     }
   },
 }
