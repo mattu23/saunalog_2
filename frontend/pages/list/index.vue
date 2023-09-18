@@ -70,7 +70,7 @@ export default {
         const response = await this.$axios.get('http://localhost:3001/saunalog');
         this.saunaLogs = response.data;
       } catch(error) {
-        alert(error);
+        alert('正常にデータを取得できませんでした。ログイン状態を確認してください。');
       }
     },
     async deleteLog(id) {
@@ -79,7 +79,7 @@ export default {
         this.getLogData();
         alert('データを削除しました。');
       } catch(error) {
-        alert(error);
+        alert('データを正常に削除できませんでした。');
       }
     }
   }
