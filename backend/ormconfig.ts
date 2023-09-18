@@ -2,11 +2,11 @@ const MysqlConnectionOptions = require('typeorm/driver/mysql/MysqlConnectionOpti
 
 const options = {
   type: 'mysql',
-  host: '127.0.0.1',
+  host: 'us-cdbr-east-06.cleardb.net',
   port: 3306,
-  username: 'user',
-  password: 'password',
-  database: 'develop',
+  username: 'b95043fd55958a',
+  password: 'd67af78e',
+  database: 'heroku_c037d59f3b5618c',
   entities: ['dist/src/**/*.entity.js'],
   migrations: ['dist/src/migration/**/*.js'],
   cli: {
