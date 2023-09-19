@@ -57,7 +57,7 @@ export default {
   methods: {
     async createUser() {
       try {
-        await this.$axios.post('http://localhost:3001/saunalog/auth/signup', {
+        await this.$axios.post('https://saunalog-backend-5253beda3c29.herokuapp.com/auth/signup', {
           name: this.user.name,
           email: this.user.email,
           password: this.user.password,

@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { CreateUserDto } from './DTO/create-user.dto';
 import { CredentialsDTO } from './DTO/credentials.dto';
 
-@Controller('saunalog/auth')
+@Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 

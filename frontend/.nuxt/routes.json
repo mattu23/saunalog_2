@@ -3,42 +3,36 @@
     "name": "list",
     "path": "/list",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/list/index.vue",
-    "chunkName": "pages/list/index",
-    "_name": "_3bea3fa4"
+    "chunkName": "pages/list/index"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/register.vue",
-    "chunkName": "pages/register",
-    "_name": "_6b2e7220"
+    "chunkName": "pages/register"
   },
   {
     "name": "auth-login",
     "path": "/auth/login",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/auth/login.vue",
-    "chunkName": "pages/auth/login",
-    "_name": "_32486bcf"
+    "chunkName": "pages/auth/login"
   },
   {
     "name": "auth-signup",
     "path": "/auth/signup",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/auth/signup.vue",
-    "chunkName": "pages/auth/signup",
-    "_name": "_631efb22"
+    "chunkName": "pages/auth/signup"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_f02cf156"
+    "chunkName": "pages/index"
   },
   {
     "name": "list-id",
     "path": "/list/:id",
     "component": "/Users/matsushitahiroki/codefile/saunalog/frontend/pages/list/_id.vue",
-    "chunkName": "pages/list/_id",
-    "_name": "_4ce1d3d4"
+    "chunkName": "pages/list/_id"
   }
 ]

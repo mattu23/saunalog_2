@@ -5,7 +5,7 @@ export default {
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -46,7 +46,7 @@ export default {
     '@nuxtjs/auth',
   ],
   axios: {
-    baseURL: 'http://localhost:3001/saunalog',
+    baseURL: 'https://saunalog-backend-5253beda3c29.herokuapp.com/',
   },
   plugins: [
     './plugins/vee-validate.js'

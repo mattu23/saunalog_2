@@ -15,6 +15,4 @@ export class User {
   @Column({ type: 'varchar', length: 255 })
   password: string;
 
-  // @Column({ charset: 'utf8' })
-  // auth0_user_id: string;
 }

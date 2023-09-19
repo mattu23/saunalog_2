@@ -72,20 +72,20 @@ export default {
     async loadData() {
       try {
         const id = this.$route.params.id;
-        const response = await this.$axios.get(`http://localhost:3001/saunalog/${id}`);
+        const response = await this.$axios.get(`https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/${id}`);
         this.log = response.data;
       } catch (error) {
-        alert('データの取得に失敗しました。' + error);
+        alert('データの取得に失敗しました。');
       }
     },
     async updateLog() {
       try {
         const id = this.$route.params.id;
-        await this.$axios.put(`http://localhost:3001/saunalog/${id}`, this.log);
+        await this.$axios.put(`https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/${id}`, this.log);
         alert('正常に更新されました。');
         this.$router.push('/list');
       } catch(error) {
-        alert('更新に失敗しました。' + error);
+        alert('更新に失敗しました。');
       }
     }
   }

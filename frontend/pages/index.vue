@@ -3,7 +3,7 @@
     <div style="flex-grow: 1;" >
       <v-card elevation="16" width="900px" class="mx-auto mt-5" shaped>
         <v-card-title>
-          <h2 class="mx-auto">Welcome to Saunalog！</h2>
+          <h2 class="mx-auto">Welcome to Saunalog!!</h2>
         </v-card-title>
         <v-card-text>
           <v-card-actions>
@@ -18,13 +18,12 @@
           <v-card-actions>
             <v-row style="text-align: center">
               <v-col>
-                <v-btn to="/list"  class="primary my-5" min-width="200">登録一覧を見る</v-btn>
+                <v-btn to="/list"  class="primary my-5" min-width="200">登録済み一覧を見る</v-btn>
               </v-col>
             </v-row>
           </v-card-actions>
         </v-card-text>
       </v-card>
     </div>
-
   </div>
 </template>

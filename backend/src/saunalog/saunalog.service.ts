@@ -10,21 +10,16 @@ export class SaunalogService {
     private readonly saunalogRepository: Repository<Saunalog>,
   ) {}
 
-  //自分が投稿したい要素(entityで指定した要素)を引数で記載する
   async store(name: string, area: string, rank: number, comment: string) {
-    //Entityファイル内のClassのオブジェクトを作成して変数に格納
     const saunalog = new Saunalog();
-    //オブジェクトの中身は空なので、上の引数で指定した要素を中身に格納する
-    saunalog.name = name;
-    saunalog.area = area;
-    saunalog.rank = rank;
-    saunalog.comment = comment;
-    //サウナログテーブルにデータを保存する処理
+      saunalog.name = name;
+      saunalog.area = area;
+      saunalog.rank = rank;
+      saunalog.comment = comment;
     const updatedSaunalog = await this.saunalogRepository.save(saunalog);
     return updatedSaunalog;
   }
 
-  //データ一覧を表示させる処理
   get() {
     return this.saunalogRepository.find();
   }

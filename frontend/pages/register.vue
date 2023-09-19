@@ -59,7 +59,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -74,7 +73,7 @@ export default {
   },
   methods: {
     registerLog() {
-      this.$axios.post('http://localhost:3001/saunalog', {
+      this.$axios.post('https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/', {
         name: this.log.name,
         area: this.log.area,
         rank: this.log.rank,
@@ -93,6 +92,4 @@ export default {
     },
   }
 };
-
-
 </script>
