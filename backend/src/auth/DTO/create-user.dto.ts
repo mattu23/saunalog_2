@@ -4,7 +4,8 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(16)
-  name: string;
+  //下記を「username」に命名変更したい
+  username: string;
 
   @IsString()
   @IsNotEmpty()

@@ -13,7 +13,7 @@ export class AuthController {
     return await this.authService.signUp(CreateUserDto);
   }
 
-  @Post('login')
+  @Post('signin')
   async signin(@Body() CredentialsDTO: CredentialsDTO): Promise<{ accessToken: string }> {
     return await this.authService.signIn(CredentialsDTO);
   }

@@ -1,9 +1,10 @@
 import { IsNotEmpty, IsString, MaxLength, MinLength } from "class-validator";
 
+//ログイン情報のDTO
 export class CredentialsDTO {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  username: string;
 
   @IsString()
   @MinLength(8)

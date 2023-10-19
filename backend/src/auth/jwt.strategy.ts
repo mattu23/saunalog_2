@@ -8,14 +8,16 @@ import { UserRepository } from "./user.repository";
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private userRepository: UserRepository) {
     super({
+      //リクエストのどこの部分にjwtを記述するか指定する
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      //Tokenの有効期限切れを考慮するかどうか（有効期限を無視したい場合はtrue）
       ignoreExpiration: false,
       secretOrKey: 'secretKey123',
     });
   }
 
-  async validate(payload: { id: string }): Promise<User> {
-    const { id } = payload;
+  async validate(payload: { id: string , username: string}): Promise<User> {
+    const { id, username } = payload;
     const user = await this.userRepository.findOne(id);
     
     if (user) {

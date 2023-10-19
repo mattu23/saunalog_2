@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Saunalog } from "./saunalog.entity";
 
 
 @Entity('user')
@@ -6,13 +7,15 @@ export class User {
   @PrimaryGeneratedColumn({ type: 'int', unsigned: false })
   id: number;
 
-  @Column({ length: 16, charset: 'utf8' })
-  name: string;
+  @Column({ length: 16, charset: 'utf8', unique: true })
+  username: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column({ type: 'varchar', length: 255 })
   password: string;
 
+  @OneToMany(() => Saunalog, (Saunalog) => Saunalog.user)
+  saunalogs: Saunalog[];
 }

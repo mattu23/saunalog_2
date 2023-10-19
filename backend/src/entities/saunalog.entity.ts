@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./user.entity";
 
 
 @Entity()
@@ -20,4 +21,7 @@ export class Saunalog {
 
   @CreateDateColumn()
   readonly created_at?: Date;
-}
+
+  @ManyToOne(() => User, (user) => user.saunalogs)
+  user: User;
+} 

@@ -72,24 +72,24 @@ export default {
     };
   },
   methods: {
-    registerLog() {
-      this.$axios.post('https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/', {
+    async registerLog() {
+      try {
+      const response = await this.$axios.post('https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/', {
         name: this.log.name,
         area: this.log.area,
         rank: this.log.rank,
         comment: this.log.comment,
-      })
-      .then((response) => {
-        if(response.status >= 200 && response.status < 300) {
-          this.$router.push('/list');
-        } else {
-          console.error('Error registering log:', response.data);
-        }
-      })
-      .catch((error) => {
-        console.error('API call failed:', error);
       });
-    },
+
+      if(response.status >= 200 && response.status < 300) {
+          alert('データを登録しました！');
+          this.$router.push('/list');
+        }
+      } catch(error) {
+        console.error(error);
+        alert('登録に失敗しました。もう一度入力内容を確認してください。');
+      }
+    }
   }
-};
+}
 </script>
