@@ -8,7 +8,7 @@
         <v-form>
           <v-text-field
             prepend-icon="mdi-account-circle"
-            label="name"
+            label="username"
             placeholder="山田 太郎"
             counter="16"
             v-model="user.name"
@@ -48,7 +48,7 @@ export default {
     return {
       showPassword: false,
       user: {
-        name: '',
+        username: '',
         email: '',
         password: '',
       },
@@ -57,8 +57,8 @@ export default {
   methods: {
     async createUser() {
       try {
-        await this.$axios.post('https://saunalog-backend-5253beda3c29.herokuapp.com/auth/signup', {
-          name: this.user.name,
+        await this.$axios.post('http://localhost:3001/auth/signup', {
+          username: this.user.name,
           email: this.user.email,
           password: this.user.password,
         });

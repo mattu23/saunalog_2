@@ -68,20 +68,25 @@ export default {
       numbers: [1,2,3,4,5]
     };
   },
+  async mounted() {
+    await this.loadData();
+  },
+
   methods: {
     async loadData() {
       try {
         const id = this.$route.params.id;
-        const response = await this.$axios.get(`https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/${id}`);
+        const response = await this.$axios.get(`http://localhost:3001/saunalog/${id}`);
         this.log = response.data;
       } catch (error) {
+        console.error(error);
         alert('データの取得に失敗しました。');
       }
     },
     async updateLog() {
       try {
         const id = this.$route.params.id;
-        await this.$axios.put(`https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/${id}`, this.log);
+        await this.$axios.put(`http://localhost:3001/saunalog/${id}`, this.log);
         alert('正常に更新されました。');
         this.$router.push('/list');
       } catch(error) {

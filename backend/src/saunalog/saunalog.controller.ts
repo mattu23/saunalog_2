@@ -25,6 +25,11 @@ export class SaunalogController {
     return this.saunalogService.get();
   }
 
+  @Get(':id')
+  async getOneSaunalog(@Param('id', ParseIntPipe) id: number) {
+    return await this.saunalogService.findOne(id);
+  }
+
   @Post()
     postData(@Body() CreateSaunalogDto: CreateSaunalogDto) {
       const { name, area, rank, comment } = CreateSaunalogDto;

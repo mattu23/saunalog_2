@@ -7,9 +7,9 @@
       <v-card-text>
         <v-form>
           <v-text-field
-            v-model="user.name"
+            v-model="user.username"
             prepend-icon="mdi-account-circle"
-            label="name"
+            label="username"
             placeholder="山田 太郎"
             counter="16"
           ></v-text-field>
@@ -41,7 +41,7 @@
   data() {
     return {
       user: {
-        name: '',
+        username: '',
         password: '',
       },
       showPassword: false,
@@ -57,8 +57,8 @@
          alert('ログインに成功しました!');
        } catch (error) {
          // ログイン失敗時のアラート
+         console.error(error);
          alert('ログインに失敗しました');
-         console.log('Login error:', error);
        }
     }
   },

@@ -46,7 +46,7 @@ export default {
     '@nuxtjs/auth',
   ],
   axios: {
-    baseURL: 'https://saunalog-backend-5253beda3c29.herokuapp.com/',
+    baseURL: 'http://localhost:3001/',
   },
   plugins: [
     './plugins/vee-validate.js'

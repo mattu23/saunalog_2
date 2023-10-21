@@ -70,7 +70,7 @@ export default {
   methods: {
     async getLogData() {
       try {
-        const response = await this.$axios.get('https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/');
+        const response = await this.$axios.get('http://localhost:3001/saunalog/');
         this.saunaLogs = response.data;
       } catch(error) {
         alert('正常にデータを取得できませんでした。ログイン状態を確認してください。');
@@ -78,7 +78,7 @@ export default {
     },
     async deleteLog(id) {
       try {
-        await this.$axios.delete(`https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/${id}`);
+        await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
         this.getLogData();
         alert('データを削除しました。');
       } catch(error) {

@@ -23,6 +23,11 @@ export class SaunalogService {
   get() {
     return this.saunalogRepository.find();
   }
+
+  async findOne(id: number) {
+    const log = await this.saunalogRepository.findOne(id);
+    return log;
+  }
  
   async update(id, name: string, area: string, rank: number, comment: string) {
     const saunalog = await this.saunalogRepository.findOne(id);  

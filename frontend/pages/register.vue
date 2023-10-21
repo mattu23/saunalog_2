@@ -74,7 +74,7 @@ export default {
   methods: {
     async registerLog() {
       try {
-      const response = await this.$axios.post('https://saunalog-backend-5253beda3c29.herokuapp.com/saunalog/', {
+      const response = await this.$axios.post('http://localhost:3001/saunalog/', {
         name: this.log.name,
         area: this.log.area,
         rank: this.log.rank,
