@@ -24,4 +24,7 @@ export class Saunalog {
 
   @ManyToOne(() => User, (user) => user.saunalogs)
   user: User;
+
+  @Column()
+  userId: string; 
 } 
