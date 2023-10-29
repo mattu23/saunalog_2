@@ -13,6 +13,10 @@ import { SaunalogService } from './saunalog.service';
 import { CreateSaunalogDto } from 'src/dto/create-saunalog.dto';
 import { Saunalog } from 'src/entities/saunalog.entity';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { Request } from '@nestjs/common';
+import { GetUser } from 'src/auth/decorator/get-user.decorator';
+import { User } from 'src/entities/user.entity';
+
 
 
 @Controller('saunalog')
@@ -31,9 +35,8 @@ export class SaunalogController {
   }
 
   @Post()
-    postData(@Body() CreateSaunalogDto: CreateSaunalogDto) {
-      const { name, area, rank, comment } = CreateSaunalogDto;
-      return this.saunalogService.store(name, area, rank, comment);
+    postData(@Body() CreateSaunalogDto: CreateSaunalogDto, @GetUser() user: User) {
+      return this.saunalogService.create(CreateSaunalogDto, user);
     }
 
   @Put(':id')
