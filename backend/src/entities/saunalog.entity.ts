@@ -26,5 +26,5 @@ export class Saunalog {
   user: User;
 
   @Column()
-  userId: string; 
+  userId: number; 
 } 
