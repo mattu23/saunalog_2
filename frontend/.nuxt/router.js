@@ -4,12 +4,12 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _3bea3fa4 = () => interopDefault(import('../pages/list/index.vue' /* webpackChunkName: "pages/list/index" */))
-const _6b2e7220 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
-const _32486bcf = () => interopDefault(import('../pages/auth/login.vue' /* webpackChunkName: "pages/auth/login" */))
-const _631efb22 = () => interopDefault(import('../pages/auth/signup.vue' /* webpackChunkName: "pages/auth/signup" */))
-const _f02cf156 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
-const _4ce1d3d4 = () => interopDefault(import('../pages/list/_id.vue' /* webpackChunkName: "pages/list/_id" */))
+const _aa295f54 = () => interopDefault(import('../pages/list/index.vue' /* webpackChunkName: "pages/list/index" */))
+const _1d772118 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
+const _09ae4812 = () => interopDefault(import('../pages/auth/login.vue' /* webpackChunkName: "pages/auth/login" */))
+const _7fb17c1a = () => interopDefault(import('../pages/auth/signUp.vue' /* webpackChunkName: "pages/auth/signUp" */))
+const _4284c3a6 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _2c9d703e = () => interopDefault(import('../pages/list/_id.vue' /* webpackChunkName: "pages/list/_id" */))
 
 const emptyFn = () => {}
 
@@ -24,27 +24,27 @@ export const routerOptions = {
 
   routes: [{
     path: "/list",
-    component: _3bea3fa4,
+    component: _aa295f54,
     name: "list"
   }, {
     path: "/register",
-    component: _6b2e7220,
+    component: _1d772118,
     name: "register"
   }, {
     path: "/auth/login",
-    component: _32486bcf,
+    component: _09ae4812,
     name: "auth-login"
   }, {
-    path: "/auth/signup",
-    component: _631efb22,
-    name: "auth-signup"
+    path: "/auth/signUp",
+    component: _7fb17c1a,
+    name: "auth-signUp"
   }, {
     path: "/",
-    component: _f02cf156,
+    component: _4284c3a6,
     name: "index"
   }, {
     path: "/list/:id",
-    component: _4ce1d3d4,
+    component: _2c9d703e,
     name: "list-id"
   }],
 
