@@ -34,7 +34,7 @@
                   <v-btn
                     dark
                     color="green darken-1"
-                    style="margin-left;: 10px"
+                    style="margin-left: 10px"
                     @click="deleteLog(log.id)"
                   >
                     削除
@@ -44,11 +44,12 @@
           </v-row>
         </v-container>
         <v-btn
-         to="/"
          style="margin: 20px"
-         nuxt
+         dark
+         color="red darken-1"
+         @click="logout()"
          >
-         トップページへ戻る
+         ログアウト
         </v-btn>
       </v-card>
     </v-layout>
@@ -73,6 +74,7 @@ export default {
         const response = await this.$axios.get('http://localhost:3001/saunalog/');
         this.saunaLogs = response.data;
       } catch(error) {
+        console.error(error);
         alert('正常にデータを取得できませんでした。ログイン状態を確認してください。');
       }
     },
@@ -83,6 +85,14 @@ export default {
         alert('データを削除しました。');
       } catch(error) {
         alert('データを正常に削除できませんでした。');
+      }
+    },
+    async logout() {
+      try {
+        await this.$auth.logout();
+        this.$router.push('/');
+      } catch(error) {
+        console.error(error);
       }
     }
   }
