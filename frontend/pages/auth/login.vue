@@ -7,10 +7,9 @@
       <v-card-text>
         <v-form>
           <v-text-field
-            v-model="user.username"
+            v-model="user.email"
             prepend-icon="mdi-account-circle"
-            label="username"
-            placeholder="山田 太郎"
+            label="email"
             counter="16"
           ></v-text-field>
           <v-text-field
@@ -41,7 +40,7 @@
   data() {
     return {
       user: {
-        username: '',
+        email: '',
         password: '',
       },
       showPassword: false,
@@ -53,14 +52,12 @@
          await this.$auth.loginWith('local', {
            data: this.user
          });
-         // ログイン成功時のアラート
          alert('ログインに成功しました!');
        } catch (error) {
-         // ログイン失敗時のアラート
          console.error(error);
          alert('ログインに失敗しました');
        }
-    }
+    },
   },
 }
 </script>

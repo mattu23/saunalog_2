@@ -67,8 +67,8 @@ export default {
         this.$router.push('/auth/login');
         alert('登録が完了しました。');
       } catch (error) {
-        console.error('Error during registration:', error.response.data);
-        alert('登録ができませんでした。もう一度確認してください。')
+        console.error(error.response.data);
+        alert('登録ができませんでした。もう一度入力内容を確認してください。')
       }
     },
   },
