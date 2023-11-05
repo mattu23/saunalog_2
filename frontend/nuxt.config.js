@@ -47,6 +47,7 @@ export default {
   ],
   axios: {
     baseURL: 'http://localhost:3001/',
+    credentials: true, // クロスオリジンのリクエストで認証情報（クッキー等）を含む
   },
   plugins: [
     './plugins/vee-validate.js'
@@ -81,9 +82,11 @@ export default {
           login: {
             url: "/auth/login",
             method: "post",
-            propertyName: "accessToken",
           },
-          logout: false,
+          logout: {
+            url: "/auth/logout",
+            method: "post",
+          },
           user: false,
         },
       },

@@ -4,7 +4,7 @@ import { IsNotEmpty, IsString, MaxLength, MinLength } from "class-validator";
 export class CredentialsDTO {
   @IsString()
   @IsNotEmpty()
-  username: string;
+  email: string;
 
   @IsString()
   @MinLength(8)

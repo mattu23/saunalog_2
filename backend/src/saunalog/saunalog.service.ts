@@ -1,8 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
 import { Saunalog } from "src/entities/saunalog.entity";
 import { User } from "src/entities/user.entity";
-import { Repository } from "typeorm";
 import { SaunalogRepository } from "./saunalog.repository";
 import { CreateSaunalogDto } from "src/dto/create-saunalog.dto";
 
@@ -10,8 +8,10 @@ import { CreateSaunalogDto } from "src/dto/create-saunalog.dto";
 export class SaunalogService {
   constructor(private readonly SaunalogRepository: SaunalogRepository) {}
 
-  get() {
-    return this.SaunalogRepository.find();
+  getLogsByUser(userid: number) {
+    return this.SaunalogRepository.find({
+      where: {userId: userid }
+    });
   }
 
   async findOne(id: number) {
