@@ -11,6 +11,7 @@ import * as session from 'express-session';
   ],
   controllers: [AuthController],
   providers: [AuthService],
+  exports: [AuthService, TypeOrmModule],
 })
 export class AuthModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
