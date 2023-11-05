@@ -15,7 +15,6 @@ export class SaunalogRepository  extends Repository<Saunalog>{
       user,
     });
 
-    // await this.save(saunalog);
     try {
       await this.save(saunalog);
     } catch (error) {

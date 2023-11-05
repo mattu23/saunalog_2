@@ -39,10 +39,4 @@ export class AuthService {
       });
     });
   }
-  // async signOut(req: Request):Promise<any> {
-  //   req.session.userId = null; // セッションのユーザー情報をクリアします
-  //   req.session.destroy();
-  //   return { message: 'ログアウトしました' };
-  // }
-
 }
