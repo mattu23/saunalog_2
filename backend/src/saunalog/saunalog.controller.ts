@@ -7,6 +7,7 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 import { SaunalogService } from './saunalog.service';
@@ -14,6 +15,8 @@ import { CreateSaunalogDto } from 'src/dto/create-saunalog.dto';
 import { SessionAuthGuard } from 'src/auth/guards/auth.guard';
 import { GetUser } from 'src/auth/decorator/get-user.decorator';
 import { User } from 'src/entities/user.entity';
+import { Request } from 'express';
+
 
 
 
@@ -23,8 +26,9 @@ export class SaunalogController {
   constructor(private readonly saunalogService: SaunalogService) {}
 
   @Get()
-  getData() {
-    return this.saunalogService.get();
+  getData(@Req() req) {
+    const userId = req.user.id;
+    return this.saunalogService.getLogsByUser(userId);
   }
 
   @Get(':id')
