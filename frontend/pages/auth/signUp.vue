@@ -17,7 +17,6 @@
             prepend-icon="mdi-email-outline"
             label="email"
             placeholder="example@email.com"
-            counter="64"
             v-model="user.email"
           />
           <v-text-field

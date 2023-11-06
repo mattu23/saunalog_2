@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center justify-center>
-    <v-card elevation="16" width="600px" class="mx-auto mt-5" shaped>
+    <v-card elevation="15" width="600px" class="mx-auto mt-5" shaped>
       <v-card-title>
         <h2 class="mx-auto">ログイン</h2>
       </v-card-title>
@@ -10,7 +10,7 @@
             v-model="user.email"
             prepend-icon="mdi-account-circle"
             label="email"
-            counter="16"
+            placeholder="example@email.com"
           ></v-text-field>
           <v-text-field
             v-bind:type="showPassword ? 'text' : 'password'"
