@@ -15,9 +15,6 @@ import { CreateSaunalogDto } from 'src/dto/create-saunalog.dto';
 import { SessionAuthGuard } from 'src/auth/guards/auth.guard';
 import { GetUser } from 'src/auth/decorator/get-user.decorator';
 import { User } from 'src/entities/user.entity';
-import { Request } from 'express';
-
-
 
 
 @Controller('saunalog')
