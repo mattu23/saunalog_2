@@ -11,12 +11,14 @@
             label="username"
             placeholder="山田 太郎"
             counter="16"
+            :rules="usernameRules"
             v-model="user.name"
           ></v-text-field>
           <v-text-field
             prepend-icon="mdi-email-outline"
             label="email"
             placeholder="example@email.com"
+            :rules="emailRules"
             v-model="user.email"
           />
           <v-text-field
@@ -27,11 +29,12 @@
             placeholder="大文字・小文字・記号を含んで下さい"
             counter="32"
             v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="passwordRules"
             v-model="user.password"
           ></v-text-field>
           <br />
           <v-card-actions>
-            <v-btn class="primary" @click="createUser">登録</v-btn>
+            <v-btn :disabled="!valid" class="primary" @click="createUser">登録</v-btn>
             <v-btn to="login">戻る</v-btn>
           </v-card-actions>
         </v-form>
@@ -43,6 +46,7 @@
 <script>
 export default {
   auth: false,
+  valid: true,
   data() {
     return {
       showPassword: false,
@@ -51,7 +55,22 @@ export default {
         email: '',
         password: '',
       },
-    }
+      usernameRules: [
+        v => !!v || 'ユーザー名は必須です',
+        v => (v && v.length <= 16) || 'ユーザー名は16文字以内で入力してください',
+      ],
+      emailRules: [
+        v => !!v || 'Eメールは必須です',
+        v => /.+@.+\..+/.test(v) || '有効なEメールを入力してください',
+      ],
+      passwordRules: [
+        v => !!v || 'パスワードは必須です',
+        v => v.length >= 8 || 'パスワードは8文字以上です',
+        v => /[A-Z]/.test(v) || '少なくとも1つの大文字が必要です',
+        v => /[a-z]/.test(v) || '少なくとも1つの小文字が必要です',
+        v => /[0-9]/.test(v) || '少なくとも1つの数字が必要です',
+      ],
+    };
   },
   methods: {
     async createUser() {
@@ -67,7 +86,7 @@ export default {
         alert('登録が完了しました。');
       } catch (error) {
         console.error(error.response.data);
-        alert('登録ができませんでした。もう一度入力内容を確認してください。')
+        alert('入力内容に誤りがあります。もう一度入力内容を確認してください。')
       }
     },
   },
