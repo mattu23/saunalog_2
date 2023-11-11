@@ -28,6 +28,12 @@ export class AuthService {
     throw new UnauthorizedException('ログイン情報が正しくありません');
   }
 
+
+  async getUserById(userId: number): Promise<User> {
+    return await this.userRepository.findOne(userId);
+  }
+
+  
   async signOut(req: Request): Promise<{ message: string }> {
     return new Promise((resolve, reject) => {
       req.session.destroy(err => {
