@@ -3,6 +3,7 @@
     <v-layout justify-center>
       <v-card width="600px">
         <h1>登録リスト一覧</h1>
+        <h2 v-if="user">ようこそ、{{ user.username }} さん</h2>
         <v-btn to="/register"  class="primary my-5" min-width="250" style="margin: 10px;">サウナログの新規登録</v-btn>
         <v-container>
           <v-row dense>
@@ -62,13 +63,20 @@ export default {
   data() {
     return {
       saunaLogs: [],
+      user: null
     };
   },
-  //ページ表示時に一覧データを取得して表示させる処理
   created() {
     this.getLogData();
   },
+  async mounted() {
+    await this.fetchUserData();
+  },
   methods: {
+    async fetchUserData() {
+      const response = await this.$axios.get('http://localhost:3001/auth/user');
+      this.user = response.data;
+    },
     async getLogData() {
       try {
         const response = await this.$axios.get('http://localhost:3001/saunalog/');
