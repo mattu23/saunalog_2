@@ -46,13 +46,17 @@ export default {
     '@nuxtjs/auth',
   ],
   axios: {
-    baseURL: 'http://localhost:3001/',
+    baseURL: process.env.API_BASE_URL,
     credentials: true, // クロスオリジンのリクエストで認証情報（クッキー等）を含む
   },
   plugins: [
     './plugins/vee-validate.js'
   ],
 
+  env: {
+    API_ENDPOINT: process.env.API_ENDPOINT,
+    API_BASE_URL: process.env.API_BASE_URL
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

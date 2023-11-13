@@ -74,12 +74,12 @@ export default {
   },
   methods: {
     async fetchUserData() {
-      const response = await this.$axios.get('http://localhost:3001/auth/user');
+      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/auth/user`);
       this.user = response.data;
     },
     async getLogData() {
       try {
-        const response = await this.$axios.get('http://localhost:3001/saunalog/');
+        const response = await this.$axios.get(`${process.env.API_ENDPOINT}/saunalog/`);
         this.saunaLogs = response.data;
       } catch(error) {
         console.error(error);
@@ -88,7 +88,7 @@ export default {
     },
     async deleteLog(id) {
       try {
-        await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
+        await this.$axios.delete(`${process.env.API_ENDPOINT}/saunalog/${id}`);
         this.getLogData();
         alert('データを削除しました。');
       } catch(error) {
@@ -101,6 +101,7 @@ export default {
         this.$router.push('/');
       } catch(error) {
         console.error(error);
+        alert('正常にログアウトできませんでした。時間をおいて再度お試しください。')
       }
     }
   }

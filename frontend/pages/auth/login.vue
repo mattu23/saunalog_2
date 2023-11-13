@@ -63,13 +63,11 @@
   methods: {
      async login() {
        try {
-         await this.$auth.loginWith('local', {
-           data: this.user
-         });
+         await this.$auth.loginWith('local', {data: this.user});
          alert('ログインに成功しました!');
        } catch (error) {
          console.error(error);
-         alert('ログインに失敗しました');
+         alert('ログインに失敗しました。もう一度入力内容を確認してください。');
        }
     },
   },

@@ -96,7 +96,7 @@ export default {
     async loadData() {
       try {
         const id = this.$route.params.id;
-        const response = await this.$axios.get(`http://localhost:3001/saunalog/${id}`);
+        const response = await this.$axios.get(`${process.env.API_ENDPOINT}/saunalog/${id}`);
         this.log = response.data;
       } catch (error) {
         console.error(error);
@@ -106,7 +106,7 @@ export default {
     async updateLog() {
       try {
         const id = this.$route.params.id;
-        await this.$axios.put(`http://localhost:3001/saunalog/${id}`, this.log);
+        await this.$axios.put(`${process.env.API_ENDPOINT}/saunalog/${id}`, this.log);
         alert('正常に更新されました。');
         this.$router.push('/list');
       } catch(error) {

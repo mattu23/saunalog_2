@@ -34,7 +34,7 @@
           ></v-text-field>
           <br />
           <v-card-actions>
-            <v-btn :disabled="!valid" class="primary" @click="createUser">登録</v-btn>
+            <v-btn class="primary" @click="createUser">登録</v-btn>
             <v-btn to="login">戻る</v-btn>
           </v-card-actions>
         </v-form>
@@ -75,13 +75,11 @@ export default {
   methods: {
     async createUser() {
       try {
-        await this.$axios.post('http://localhost:3001/auth/signup', {
+        await this.$axios.post(`${process.env.API_ENDPOINT}/auth/signup`, {
           username: this.user.name,
           email: this.user.email,
           password: this.user.password,
         });
-        
-        // 登録成功時の処理
         this.$router.push('/auth/login');
         alert('登録が完了しました。');
       } catch (error) {

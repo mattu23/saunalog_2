@@ -94,7 +94,7 @@ export default {
   methods: {
     async registerLog() {
       try {
-      const response = await this.$axios.post('http://localhost:3001/saunalog/', {
+      const response = await this.$axios.post(`${process.env.API_ENDPOINT}/saunalog/`, {
         name: this.log.name,
         area: this.log.area,
         rank: this.log.rank,
