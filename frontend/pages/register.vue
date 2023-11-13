@@ -66,7 +66,7 @@
 export default {
   data() {
     return {
-      vaild: true,
+      valid: true,
       log: {
         name: '',
         area: '',
@@ -94,17 +94,9 @@ export default {
   methods: {
     async registerLog() {
       try {
-      const response = await this.$axios.post(`${process.env.API_ENDPOINT}/saunalog/`, {
-        name: this.log.name,
-        area: this.log.area,
-        rank: this.log.rank,
-        comment: this.log.comment,
-      });
-
-      if(response.status >= 200 && response.status < 300) {
-          alert('データを登録しました！');
-          this.$router.push('/list');
-        }
+        await this.$axios.post(`${process.env.API_ENDPOINT}/saunalog/`, this.log);
+        alert('データを登録しました！');
+        this.$router.push('/list');
       } catch(error) {
         console.error(error);
         alert('登録に失敗しました。もう一度入力内容を確認してください。');
