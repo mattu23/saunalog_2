@@ -98,6 +98,7 @@ export default {
     async logout() {
       try {
         await this.$auth.logout();
+        alert('ログアウトしました。');
         this.$router.push('/');
       } catch(error) {
         console.error(error);

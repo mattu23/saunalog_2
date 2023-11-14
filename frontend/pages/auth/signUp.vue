@@ -34,7 +34,7 @@
           ></v-text-field>
           <br />
           <v-card-actions>
-            <v-btn class="primary" @click="createUser">登録</v-btn>
+            <v-btn class="primary" :disabled="!valid" @click="createUser">登録</v-btn>
             <v-btn to="login">戻る</v-btn>
           </v-card-actions>
         </v-form>
@@ -46,9 +46,9 @@
 <script>
 export default {
   auth: false,
-  valid: true,
   data() {
     return {
+      valid: true,
       showPassword: false,
       user: {
         username: '',
@@ -80,8 +80,8 @@ export default {
           email: this.user.email,
           password: this.user.password,
         });
-        this.$router.push('/auth/login');
         alert('登録が完了しました。');
+        this.$router.push('/auth/login');
       } catch (error) {
         console.error(error.response.data);
         alert('入力内容に誤りがあります。もう一度入力内容を確認してください。')
