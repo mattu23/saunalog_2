@@ -8,6 +8,7 @@
         <v-form>
           <v-text-field
             v-model="log.name"
+            :rules="nameRules"
             prepend-icon="mdi-home-variant"
             label="name"
             placeholder="勝どきの湯"
@@ -15,6 +16,7 @@
           ></v-text-field>
           <v-text-field
             v-model="log.area"
+            :rules="areaRules"
             prepend-icon="mdi-map-marker"
             label="area"
             placeholder="東京都 中央区"
@@ -22,6 +24,7 @@
           ></v-text-field>
           <v-select
             v-model="log.rank"
+            :rules="rankRules"
             prepend-icon="mdi-star"
             label="rank"
             :items="numbers"
@@ -29,6 +32,7 @@
           ></v-select>
           <v-textarea
             v-model="log.comment"
+            :rules="commentRules"
             prepend-icon="mdi-tooltip"
             label="comment"
             placeholder=""
@@ -62,29 +66,37 @@
 export default {
   data() {
     return {
+      valid: true,
       log: {
         name: '',
         area: '',
         rank: null,
         comment: '',
       },
-      numbers: [1,2,3,4,5]
+      numbers: [1,2,3,4,5],
+      nameRules: [
+        v => !!v || '施設名は必須項目です',
+        v => (v && v.length <= 20) || '施設名は20文字以内で入力してください'
+      ],
+      areaRules: [
+        v => !!v || 'エリアは必須項目です',
+        v => (v && v.length <= 20) || 'エリアは20文字以内で入力してください'
+      ],
+      rankRules: [
+        v => !!v || '評価は必須項目です',
+      ],
+      commentRules: [
+        v => !!v || 'コメントは必須項目です',
+        v => (v && v.length <= 100) || 'コメントは100文字以内で入力してください'
+      ],
     };
   },
   methods: {
     async registerLog() {
       try {
-      const response = await this.$axios.post('http://localhost:3001/saunalog/', {
-        name: this.log.name,
-        area: this.log.area,
-        rank: this.log.rank,
-        comment: this.log.comment,
-      });
-
-      if(response.status >= 200 && response.status < 300) {
-          alert('データを登録しました！');
-          this.$router.push('/list');
-        }
+        await this.$axios.post(`${process.env.API_ENDPOINT}/saunalog/`, this.log);
+        alert('データを登録しました！');
+        this.$router.push('/list');
       } catch(error) {
         console.error(error);
         alert('登録に失敗しました。もう一度入力内容を確認してください。');

@@ -10,6 +10,7 @@ export class UserRepository extends Repository<User> {
     const hashPassword = await bcrypt.hash(password, 10); // ソルトを自動で生成
     const user = this.create({ username, email, password: hashPassword });
 
+    //ユーザー情報をDBに保存
     try {
       await this.save(user);
       return user;

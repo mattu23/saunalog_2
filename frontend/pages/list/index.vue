@@ -3,6 +3,7 @@
     <v-layout justify-center>
       <v-card width="600px">
         <h1>登録リスト一覧</h1>
+        <h2 v-if="user">ようこそ、{{ user.username }} さん</h2>
         <v-btn to="/register"  class="primary my-5" min-width="250" style="margin: 10px;">サウナログの新規登録</v-btn>
         <v-container>
           <v-row dense>
@@ -62,16 +63,23 @@ export default {
   data() {
     return {
       saunaLogs: [],
+      user: null
     };
   },
-  //ページ表示時に一覧データを取得して表示させる処理
   created() {
     this.getLogData();
   },
+  async mounted() {
+    await this.fetchUserData();
+  },
   methods: {
+    async fetchUserData() {
+      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/auth/user`);
+      this.user = response.data;
+    },
     async getLogData() {
       try {
-        const response = await this.$axios.get('http://localhost:3001/saunalog/');
+        const response = await this.$axios.get(`${process.env.API_ENDPOINT}/saunalog/`);
         this.saunaLogs = response.data;
       } catch(error) {
         console.error(error);
@@ -80,7 +88,7 @@ export default {
     },
     async deleteLog(id) {
       try {
-        await this.$axios.delete(`http://localhost:3001/saunalog/${id}`);
+        await this.$axios.delete(`${process.env.API_ENDPOINT}/saunalog/${id}`);
         this.getLogData();
         alert('データを削除しました。');
       } catch(error) {
@@ -90,9 +98,11 @@ export default {
     async logout() {
       try {
         await this.$auth.logout();
+        alert('ログアウトしました。');
         this.$router.push('/');
       } catch(error) {
         console.error(error);
+        alert('正常にログアウトできませんでした。時間をおいて再度お試しください。')
       }
     }
   }
