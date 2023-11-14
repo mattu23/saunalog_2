@@ -36,8 +36,7 @@ export class AuthService {
 
   //ログアウト
   async signOut(req: Request): Promise<{ message: string }> {
-    return new Promise((resolve, reject) => {
-      req.session.destroy(err => {
+    return new Promise((resolve, reject) => { req.session.destroy(err => {
         if (err) {
           reject(err);
         } else {

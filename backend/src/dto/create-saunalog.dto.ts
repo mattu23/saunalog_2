@@ -1,7 +1,6 @@
 import { IsInt, IsNotEmpty, IsNumber, IsString, Max, MaxLength, Min } from "class-validator";
 
 export class CreateSaunalogDto {
-  // id: number;
   @IsString()
   @IsNotEmpty()
   @MaxLength(20)

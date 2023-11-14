@@ -13,6 +13,7 @@ export class UserRepository extends Repository<User> {
     //ユーザー情報をDBに保存
     try {
       await this.save(user);
+      //保存されたユーザーエンティティを戻り値として返す
       return user;
     } catch (error) {
       throw new Error('ユーザーの保存に失敗しました。');
