@@ -10,7 +10,7 @@ export class Saunalog {
   @Column('varchar', { length: 20, nullable: false })
   name: string;
 
-  @Column()
+  @Column('varchar', { length: 20, nullable: false })
   area: string;
 
   @Column()

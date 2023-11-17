@@ -8,6 +8,7 @@ export class CreateSaunalogDto {
 
   @IsString()
   @IsNotEmpty()
+  @MaxLength(20)
   area: string;
 
   @IsNumber()
