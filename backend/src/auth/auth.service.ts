@@ -45,4 +45,10 @@ export class AuthService {
       });
     });
   }
+
+  //ユーザーの削除
+  async deleteUser(userId: number) {
+    const user = await this.getUserById(userId)
+    return this.userRepository.remove(user);
+  }
 }

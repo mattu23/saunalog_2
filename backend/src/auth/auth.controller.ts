@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Req, Get, } from '@nestjs/common';
+import { Body, Controller, Post, Req, Get, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { Request } from 'express';
 import { User } from 'src/entities/user.entity';
 import { AuthService } from './auth.service';
@@ -32,5 +32,11 @@ export class AuthController {
   @Post('logout')
   async logout(@Req() req: Request) {
     return this.authService.signOut(req);
+  }
+
+  //ユーザーの削除
+  @Delete('delete/:userId')
+  async deleteUser(@Param('userId', ParseIntPipe) userId: number) {
+    return this.authService.deleteUser(userId);
   }
 }
