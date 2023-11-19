@@ -2,9 +2,10 @@
   <div id="app">
     <v-layout justify-center>
       <v-card width="600px">
-        <h1>登録リスト一覧</h1>
+        <h1>登録したサウナログ一覧</h1>
         <h2 v-if="user">ようこそ、{{ user.username }} さん</h2>
-        <v-btn to="/register"  class="primary my-5" min-width="250" style="margin: 10px;">サウナログの新規登録</v-btn>
+        <v-btn to="/register"  class="primary my-5" min-width="200" style="margin: 10px;">サウナログの新規登録</v-btn>
+        <v-btn to="/editUser"  class="primary my-5" min-width="100" style="margin: 10px;">ユーザーの編集</v-btn>
         <v-container>
           <v-row dense>
             <v-col>

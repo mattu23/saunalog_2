@@ -1,5 +1,12 @@
 [
   {
+    "name": "editUser",
+    "path": "/editUser",
+    "component": "/Users/matsushitahiroki/Documents/codefile/sauna_log/frontend/pages/editUser.vue",
+    "chunkName": "pages/editUser",
+    "_name": "_0ac7326a"
+  },
+  {
     "name": "list",
     "path": "/list",
     "component": "/Users/matsushitahiroki/Documents/codefile/sauna_log/frontend/pages/list/index.vue",
