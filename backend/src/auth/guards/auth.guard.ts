@@ -11,7 +11,7 @@ export class SessionAuthGuard implements CanActivate {
     if (request.session.userId) {
       const user = await this.userRepository.findOne({ where: { id: request.session.userId } });
       if (user) {
-        request.user = user; // リクエストオブジェクトにユーザー情報を追加
+        request.user = user; // リクエストオブジェクトにユーザー情報を追加。これにより、後続のリクエストやコントローラ内でユーザー情報にアクセスできる
         return true;
       }
     }

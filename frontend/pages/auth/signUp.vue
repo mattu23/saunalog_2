@@ -36,6 +36,7 @@
           <v-card-actions>
             <v-btn class="primary" :disabled="!valid" @click="createUser">登録</v-btn>
             <v-btn to="login">戻る</v-btn>
+            <v-text style="margin: 15px"> ※既に使用済みのアドレスは登録できません</v-text>
           </v-card-actions>
         </v-form>
       </v-card-text>
@@ -61,11 +62,12 @@ export default {
       ],
       emailRules: [
         v => !!v || 'Eメールは必須です',
-        v => /.+@.+\..+/.test(v) || '有効なEメールを入力してください',
+        v => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v) || '有効なEメールを入力してください'
       ],
       passwordRules: [
         v => !!v || 'パスワードは必須です',
         v => v.length >= 8 || 'パスワードは8文字以上です',
+        v => (v && v.length <= 32) || 'パスワードは32文字以内で入力してください',
         v => /[A-Z]/.test(v) || '少なくとも1つの大文字が必要です',
         v => /[a-z]/.test(v) || '少なくとも1つの小文字が必要です',
         v => /[0-9]/.test(v) || '少なくとも1つの数字が必要です',

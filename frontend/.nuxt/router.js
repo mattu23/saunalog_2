@@ -4,6 +4,8 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _e178048c = () => interopDefault(import('../pages/editPassword.vue' /* webpackChunkName: "pages/editPassword" */))
+const _0ac7326a = () => interopDefault(import('../pages/editUser.vue' /* webpackChunkName: "pages/editUser" */))
 const _aa295f54 = () => interopDefault(import('../pages/list/index.vue' /* webpackChunkName: "pages/list/index" */))
 const _1d772118 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _09ae4812 = () => interopDefault(import('../pages/auth/login.vue' /* webpackChunkName: "pages/auth/login" */))
@@ -23,6 +25,14 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/editPassword",
+    component: _e178048c,
+    name: "editPassword"
+  }, {
+    path: "/editUser",
+    component: _0ac7326a,
+    name: "editUser"
+  }, {
     path: "/list",
     component: _aa295f54,
     name: "list"

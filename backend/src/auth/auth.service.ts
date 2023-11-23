@@ -6,6 +6,8 @@ import { CredentialsDTO } from './DTO/credentials.dto';
 import * as bcrypt from 'bcrypt';
 import { Request } from 'express';
 import { error } from 'console';
+import { updateUserDTO } from './DTO/update-user.dto';
+import { updatePasswordDTO } from './DTO/update-password.dto';
 
 @Injectable()
 export class AuthService {
@@ -36,8 +38,7 @@ export class AuthService {
 
   //ログアウト
   async signOut(req: Request): Promise<{ message: string }> {
-    return new Promise((resolve, reject) => {
-      req.session.destroy(err => {
+    return new Promise((resolve, reject) => { req.session.destroy(err => {
         if (err) {
           reject(err);
         } else {
@@ -46,4 +47,28 @@ export class AuthService {
       });
     });
   }
+
+
+  //ユーザー名・アドレスの編集
+  async updateUserData(userId: number, updateUserDTO: updateUserDTO) {
+    const user = await this.getUserById(userId)
+    user.username = updateUserDTO.username;
+    user.email = updateUserDTO.email;
+    return this.userRepository.save(user);
+  }
+
+  //パスワードの編集
+  async updateUserPassword(userId: number, updatePasswordDTO: updatePasswordDTO) {
+    const user = await this.getUserById(userId)
+    const hashPassword = await bcrypt.hash(updatePasswordDTO.password, 10);
+    user.password = hashPassword;
+    return this.userRepository.save(user);
+  }
+
+  //ユーザーの削除
+  async deleteUser(userId: number) {
+    const user = await this.getUserById(userId)
+    return this.userRepository.remove(user);
+  }
 }
+

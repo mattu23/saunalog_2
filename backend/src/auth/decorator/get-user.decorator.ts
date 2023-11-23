@@ -2,5 +2,6 @@ import { ExecutionContext, createParamDecorator } from "@nestjs/common";
 
 export const GetUser = createParamDecorator((_, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest();
+  // リクエストオブジェクトから `user` プロパティを取得して返す
   return request.user;
 });
