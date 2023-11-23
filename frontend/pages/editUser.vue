@@ -1,32 +1,41 @@
 <template>
   <v-layout align-center justify-center>
-    <v-card elevation="16" width="700px" class="mx-auto mt-5" color="" shaped>
+    <v-card elevation="16" width="600px" class="mx-auto mt-5" shaped>
       <v-card-title>
-        <h2 class="mx-auto">ユーザー編集ページ</h2>
+        <h2 class="mx-auto">ユーザー情報の編集</h2>
       </v-card-title>
-      <v-card-title>
-      <h3 v-if="user">ユーザー名：{{ user.username }}</h3>
-      <v-btn  dark min-width="100" color="green darken-1" style="margin: 10px" >ユーザー名を編集</v-btn>
-      </v-card-title>
-      
-      <v-card-title>
-      <h3 v-if="user">メールアドレス：{{ user.email }}</h3>
-      <v-btn  dark min-width="100" color="green darken-1" style="margin: 10px" >メールアドレスを編集</v-btn>
-      </v-card-title>
-
-      <v-card-title>
-      <h3 v-if="user">パスワード： </h3>
-      <v-btn  dark min-width="100" color="green darken-1" style="margin: 10px" >パスワードを編集</v-btn>
-      </v-card-title>
-
       <v-card-text>
-        <v-btn  dark color="red darken-1" min-width="100" @click="deleteUser()" >ユーザーの削除</v-btn>
-        <v-btn to="/list">戻る</v-btn>
+        <v-form>
+          <v-text-field
+            prepend-icon="mdi-account-circle"
+            label="username"
+            counter="16"
+            :rules="usernameRules"
+            v-model="user.username"
+          ></v-text-field>
+          <v-text-field
+            prepend-icon="mdi-email-outline"
+            label="email"
+            placeholder="example@email.com"
+            :rules="emailRules"
+            v-model="user.email"
+          />
+          <br />
+          <p>
+          パスワードの編集は<nuxt-link to="/editPassword">こちら</nuxt-link>
+          </p>
+          <v-card-actions>
+            <v-btn class="primary" @click="updateUserData">編集</v-btn>
+            <v-btn to="/list">戻る</v-btn>
+          </v-card-actions>
+        </v-form>
+        <br />
+        <v-btn  dark color="red darken-1" style="margin: 5px;"  min-width="100" @click="deleteUser()" >ユーザーの削除</v-btn>
       </v-card-text>
-
     </v-card>
   </v-layout>
 </template>
+
 
 
 
@@ -35,7 +44,18 @@
 export default {
   data() {
     return {
-      user: null
+      user: {
+        username:'',
+        email:'',
+      },
+      usernameRules: [
+        v => !!v || 'ユーザー名は必須です',
+        v => (v && v.length <= 16) || 'ユーザー名は16文字以内で入力してください',
+      ],
+      emailRules: [
+        v => !!v || 'Eメールは必須です',
+        v => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v) || '有効なEメールを入力してください',
+      ],
     };
   },
   async mounted() {
@@ -45,6 +65,15 @@ export default {
     async fetchUserData() {
       const response = await this.$axios.get(`${process.env.API_ENDPOINT}/auth/user`);
       this.user = response.data;
+    },
+    async updateUserData() {
+      try{
+        await this.$axios.put(`${process.env.API_ENDPOINT}/auth/updateUserData/${this.user.id}`, this.user);
+        alert('ユーザー情報を編集しました。');
+      } catch(error){
+        console.error(error);
+        alert('編集できませんでした。もう一度お試しください。');
+      }
     },
     async deleteUser() {
       try {
@@ -58,3 +87,4 @@ export default {
   }
 }  
 </script>
+
