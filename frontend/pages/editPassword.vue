@@ -16,7 +16,7 @@
           ></v-text-field>
           <br />
           <v-card-actions>
-            <v-btn class="primary" @click="updateUserPassword">編集</v-btn>
+            <v-btn dark color="green" @click="updateUserPassword">編集</v-btn>
             <v-btn to="/editUser">戻る</v-btn>
           </v-card-actions>
         </v-form>

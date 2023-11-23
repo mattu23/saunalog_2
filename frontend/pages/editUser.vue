@@ -25,7 +25,7 @@
           パスワードの編集は<nuxt-link to="/editPassword">こちら</nuxt-link>
           </p>
           <v-card-actions>
-            <v-btn class="primary" @click="updateUserData">編集</v-btn>
+            <v-btn dark color="green" @click="updateUserData">編集</v-btn>
             <v-btn to="/list">戻る</v-btn>
           </v-card-actions>
         </v-form>
