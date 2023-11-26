@@ -64,6 +64,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Saunalog-Register'
+    }
+  },
   data() {
     return {
       valid: true,

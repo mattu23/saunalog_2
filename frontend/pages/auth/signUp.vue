@@ -2,7 +2,7 @@
   <v-layout align-center justify-center>
     <v-card elevation="16" width="600px" class="mx-auto mt-5" shaped>
       <v-card-title>
-        <h2 class="mx-auto">新規登録</h2>
+        <h2 class="mx-auto">ユーザー新規登録</h2>
       </v-card-title>
       <v-card-text>
         <v-form>
@@ -22,19 +22,16 @@
             v-model="user.email"
           />
           <v-text-field
-            v-bind:type="showPassword ? 'text' : 'password'"
-            @click:append="showPassword = !showPassword"
             prepend-icon="mdi-lock"
             label="password"
             placeholder="大文字・小文字・記号を含んで下さい"
             counter="32"
-            v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             :rules="passwordRules"
             v-model="user.password"
           ></v-text-field>
           <br />
           <v-card-actions>
-            <v-btn class="primary" :disabled="!valid" @click="createUser">登録</v-btn>
+            <v-btn class="primary" @click="createUser">登録</v-btn>
             <v-btn to="login">戻る</v-btn>
             <v-text style="margin: 15px"> ※既に使用済みのアドレスは登録できません</v-text>
           </v-card-actions>
@@ -47,10 +44,13 @@
 <script>
 export default {
   auth: false,
+  head() {
+    return {
+      title: 'SignUp'
+    }
+  },
   data() {
     return {
-      valid: true,
-      showPassword: false,
       user: {
         username: '',
         email: '',

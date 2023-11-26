@@ -61,6 +61,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Saunalog-Edit'
+    }
+  },
   data() {
     return {
       vaild: true,

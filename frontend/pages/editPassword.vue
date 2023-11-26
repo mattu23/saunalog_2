@@ -28,6 +28,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Password-Edit'
+    }
+  },
   data() {
     return {
       user: {
