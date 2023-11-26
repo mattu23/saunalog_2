@@ -82,7 +82,7 @@ export default {
           email: this.user.email,
           password: this.user.password,
         });
-        alert('登録が完了しました。');
+        alert('ユーザー登録が完了しました。');
         this.$router.push('/auth/login');
       } catch (error) {
         console.error(error.response.data);
