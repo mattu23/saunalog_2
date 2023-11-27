@@ -23,7 +23,7 @@ export class AuthController {
     return await this.authService.signIn(credentialsDto, req)
   }
 
-  //ログイン時しているユーザーの情報取得
+  //ログイン時しているユーザーの情報取得（Fetchで使用）
   @Get('user')
   async getUser(@Req() req:Request): Promise<User> {
     const user = await this.authService.getUserById(req.session.userId);

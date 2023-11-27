@@ -51,10 +51,6 @@ export default {
     await this.fetchUserData();
   },
   methods: {
-    async fetchUserData() {
-      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/auth/user`);
-      this.user = response.data;
-    },
     async getLogData() {
       try {
         const response = await this.$axios.get(`${process.env.API_ENDPOINT}/saunalog/`);
@@ -63,6 +59,10 @@ export default {
         console.error(error);
         alert('正常にデータを取得できませんでした。ログイン状態を確認してください。');
       }
+    },
+    async fetchUserData() {
+      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/auth/user`);
+      this.user = response.data;
     },
     async deleteLog(id) {
       try {

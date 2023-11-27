@@ -27,7 +27,6 @@ export class AuthService {
       req.session.userId = user.id;
       return { message: 'ログインに成功しました' };
     }
-    console.error(error);
     throw new UnauthorizedException('ログイン情報が正しくありません');
   }
 
