@@ -28,6 +28,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Password-Edit'
+    }
+  },
   data() {
     return {
       user: {
@@ -40,6 +45,7 @@ export default {
         v => /[A-Z]/.test(v) || '少なくとも1つの大文字が必要です',
         v => /[a-z]/.test(v) || '少なくとも1つの小文字が必要です',
         v => /[0-9]/.test(v) || '少なくとも1つの数字が必要です',
+        v => /^[A-Za-z0-9]+$/.test(v) || 'パスワードは半角英数字のみで入力してください',
       ],
     };
   },

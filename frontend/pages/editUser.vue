@@ -42,6 +42,11 @@
 <script>
 
 export default {
+  head() {
+    return {
+      title: 'User-Edit'
+    }
+  },
   data() {
     return {
       user: {
