@@ -8,11 +8,29 @@
         <v-form>
           <v-text-field
             prepend-icon="mdi-lock"
+            label="現在のパスワード"
+            v-model="password"
+            :type="showPassword ? 'text' : 'password'"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showPassword = !showPassword"
+          ></v-text-field>
+          <v-text-field
+            prepend-icon="mdi-lock"
             label="新しいパスワード"
-            placeholder="大文字・小文字・記号を含んで下さい"
-            counter="32"
-            v-model="user.password"
+            v-model="newPassword"
+            :type="showNewPassword ? 'text' : 'password'"
+            :append-icon="showNewPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showNewPassword = !showNewPassword"
             :rules="passwordRules"
+          ></v-text-field>
+          <v-text-field
+            prepend-icon="mdi-lock"
+            label="新しいパスワードの確認"
+            v-model="newPasswordConfirm"
+            :type="showNewPasswordConfirm ? 'text' : 'password'"
+            :append-icon="showNewPasswordConfirm ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showNewPasswordConfirm = !showNewPasswordConfirm"
+            :rules="confirmPasswordRules"
           ></v-text-field>
           <br />
           <v-card-actions>
@@ -38,6 +56,12 @@ export default {
       user: {
         password:'',
       },
+      password: '',
+      newPassword: '',
+      newPasswordConfirm: '',
+      showPassword: false,
+      showNewPassword: false,
+      showNewPasswordConfirm: false,
       passwordRules: [
         v => !!v || 'パスワードは必須です',
         v => v.length >= 8 || 'パスワードは8文字以上です',
@@ -46,6 +70,10 @@ export default {
         v => /[a-z]/.test(v) || '少なくとも1つの小文字が必要です',
         v => /[0-9]/.test(v) || '少なくとも1つの数字が必要です',
         v => /^[A-Za-z0-9]+$/.test(v) || 'パスワードは半角英数字のみで入力してください',
+      ],
+      confirmPasswordRules: [
+        v => !!v || 'パスワードの確認は必須です',
+        v => v === this.newPassword || 'パスワードが一致しません',
       ],
     };
   },
@@ -59,14 +87,21 @@ export default {
       this.user.password = '';
     },
     async updateUserPassword() {
-      try{
-        await this.$axios.put(`${process.env.API_ENDPOINT}/auth/updateUserPassword/${this.user.id}`, {password: this.user.password});
-        alert('パスワードを編集しました。');
-        this.$router.push('/editUser');
-      } catch(error){
-        console.error(error);
-        alert('編集できませんでした。もう一度お試しください。');
+      if(this.newPassword !== this.newPasswordConfirm) {
+        alert('新しいパスワードと確認用パスワードが一致しません。');
+        return;
       }
+        try{
+          await this.$axios.put(`${process.env.API_ENDPOINT}/auth/updateUserPassword/${this.user.id}`, {
+            password: this.password,
+            newPassword: this.newPassword,
+          });
+          alert('パスワードを編集しました。');
+          this.$router.push('/editUser');
+        } catch(error){
+          console.error(error);
+          alert('編集できませんでした。もう一度お試しください。');
+        }
     },
   }
 }  

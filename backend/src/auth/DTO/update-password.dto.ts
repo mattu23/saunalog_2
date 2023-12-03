@@ -6,4 +6,10 @@ export class updatePasswordDTO {
   @MaxLength(32)
   @Matches(/^[A-Za-z0-9]+$/)
   password: string;
+
+  @IsString()
+  @MinLength(8)
+  @MaxLength(32)
+  @Matches(/^[A-Za-z0-9]+$/)
+  newPassword: string;
 }
