@@ -115,7 +115,9 @@ export default {
         alert('正常に更新されました。');
         this.$router.push('/list');
       } catch(error) {
-        alert('更新に失敗しました。');
+        if(error.response && error.response.data && error.response.data.message) {
+          alert(`エラー： ${error.response.data.message}`)
+        }
       }
     }
   }

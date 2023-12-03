@@ -77,7 +77,9 @@ export default {
         alert('ユーザー情報を編集しました。');
       } catch(error){
         console.error(error);
-        alert('編集できませんでした。もう一度お試しください。');
+        if(error.response && error.response.data && error.response.data.message) {
+          alert(`エラー： ${error.response.data.message}`)
+        }
       }
     },
     async deleteUser() {

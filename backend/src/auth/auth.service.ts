@@ -22,13 +22,15 @@ export class AuthService {
   async signIn(credentialsDto: CredentialsDTO, req: Request): Promise<{ message: string }> {
     const { email, password } = credentialsDto;
     const user = await this.userRepository.findOne({ email });
-    //パスワードが一致したらセッションにユーザーIDを保存
-    if (user && (await bcrypt.compare(password, user.password))) {
-      req.session.userId = user.id;
-      return { message: 'ログインに成功しました' };
+
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      throw new UnauthorizedException('メールアドレスかパスワードが誤っています。');
     }
-    throw new UnauthorizedException('ログイン情報が正しくありません');
+      //パスワードが一致したらセッションにユーザーIDを保存
+      req.session.userId = user.id;
+      return { message: 'ログインに成功しました。' };
   }
+
 
   //ログインユーザーの特定
   async getUserById(userId: number): Promise<User> {
@@ -58,7 +60,6 @@ export class AuthService {
 
   //パスワードの編集
   async updateUserPassword(userId: number, updatePasswordDTO: updatePasswordDTO) {
-
     //ユーザーを取得
     const user = await this.getUserById(userId)
     if(!user) {

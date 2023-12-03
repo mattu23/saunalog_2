@@ -72,7 +72,9 @@
          alert('ログインに成功しました!');
        } catch (error) {
          console.error(error);
-         alert('ログインに失敗しました。もう一度入力内容を確認してください。');
+         if(error.response && error.response.data && error.response.data.message) {
+            alert(`エラー： ${error.response.data.message}`)
+         }
        }
     },
   },

@@ -70,7 +70,9 @@ export default {
         this.getLogData();
         alert('データを削除しました。');
       } catch(error) {
-        alert('データを正常に削除できませんでした。');
+        if(error.response && error.response.data && error.response.data.message) {
+          alert(`エラー： ${error.response.data.message}`)
+        }
       }
     },
     async logout() {
@@ -80,7 +82,9 @@ export default {
         this.$router.push('/');
       } catch(error) {
         console.error(error);
-        alert('正常にログアウトできませんでした。時間をおいて再度お試しください。')
+        if(error.response && error.response.data && error.response.data.message) {
+          alert(`エラー： ${error.response.data.message}`)
+        }
       }
     }
   }

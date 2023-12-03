@@ -2,23 +2,23 @@ import { IsNotEmpty, IsNumber, IsString, Max, MaxLength, Min } from "class-valid
 
 export class UpdateSaunalogDto {
   @IsString()
-  @IsNotEmpty()
-  @MaxLength(20)
+  @IsNotEmpty({ message: '名前は入力必須です' })
+  @MaxLength(20, { message: '名前は20文字以内で入力してください。' })
   name: string;
 
   @IsString()
-  @IsNotEmpty()
-  @MaxLength(20)
+  @IsNotEmpty({ message: 'エリアは入力必須です' })
+  @MaxLength(20, { message: 'エリアは20文字以内で入力してください。' })
   area: string;
 
   @IsNumber()
   @Min(1)
   @Max(5)
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'ランクは入力必須です' })
   rank: number;
 
   @IsString()
-  @IsNotEmpty()
-  @MaxLength(100)
+  @IsNotEmpty({ message: 'コメントは入力必須です' })
+  @MaxLength(100, { message: 'コメントは100文字以内で入力してください。' })
   comment: string;
 }
