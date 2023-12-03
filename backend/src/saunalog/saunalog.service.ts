@@ -22,12 +22,12 @@ export class SaunalogService {
     return this.SaunalogRepository.createSaunalog(CreateSaunalogDto, user);
   }
  
-  async update(id, name: string, area: string, rank: number, comment: string) {
+  async updateSaunalog(id, UpdateSaunalogDto) {
     const saunalog = await this.SaunalogRepository.findOne(id);  
-    saunalog.name = name;
-    saunalog.area = area;
-    saunalog.rank = rank;
-    saunalog.comment = comment;
+    saunalog.name = UpdateSaunalogDto.name;
+    saunalog.area = UpdateSaunalogDto.area;
+    saunalog.rank = UpdateSaunalogDto.rank;
+    saunalog.comment = UpdateSaunalogDto.comment;
     return this.SaunalogRepository.save(saunalog);
   }
 
