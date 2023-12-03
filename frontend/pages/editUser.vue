@@ -81,12 +81,16 @@ export default {
       }
     },
     async deleteUser() {
-      try {
-        await this.$axios.delete(`${process.env.API_ENDPOINT}/auth/delete/${this.user.id}`);
-        alert('ユーザー情報を削除しました。トップページに戻ります。');
-        this.$router.push('/')
-      } catch(error) {
-        alert('削除できませんでした。もう一度お試しください。');
+      if(confirm('本当にユーザーを削除しますか？')) {
+        try {
+          await this.$axios.delete(`${process.env.API_ENDPOINT}/auth/delete/${this.user.id}`);
+          alert('ユーザー情報を削除しました。トップページに戻ります。');
+          this.$router.push('/');
+        } catch(error) {
+          alert('削除できませんでした。もう一度お試しください。');
+        }
+      } else {
+        // ユーザーがキャンセルを選択した場合、何もしない
       }
     },
   }
