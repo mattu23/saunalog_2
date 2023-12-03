@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { User } from 'src/entities/user.entity';
 import { UserRepository } from './user.repository';
 import { CreateUserDto } from './DTO/create-user.dto';
@@ -22,13 +22,15 @@ export class AuthService {
   async signIn(credentialsDto: CredentialsDTO, req: Request): Promise<{ message: string }> {
     const { email, password } = credentialsDto;
     const user = await this.userRepository.findOne({ email });
-    //パスワードが一致したらセッションにユーザーIDを保存
-    if (user && (await bcrypt.compare(password, user.password))) {
-      req.session.userId = user.id;
-      return { message: 'ログインに成功しました' };
+
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      throw new UnauthorizedException('メールアドレスかパスワードが誤っています。');
     }
-    throw new UnauthorizedException('ログイン情報が正しくありません');
+      //パスワードが一致したらセッションにユーザーIDを保存
+      req.session.userId = user.id;
+      return { message: 'ログインに成功しました。' };
   }
+
 
   //ログインユーザーの特定
   async getUserById(userId: number): Promise<User> {
@@ -58,8 +60,18 @@ export class AuthService {
 
   //パスワードの編集
   async updateUserPassword(userId: number, updatePasswordDTO: updatePasswordDTO) {
+    //ユーザーを取得
     const user = await this.getUserById(userId)
-    const hashPassword = await bcrypt.hash(updatePasswordDTO.password, 10);
+    if(!user) {
+      throw new NotFoundException('ユーザが見つかりません。');
+    }
+    //現在のパスワードが正しいか確認
+    const isMatch = await bcrypt.compare(updatePasswordDTO.password, user.password);
+    if(!isMatch) {
+      throw new BadRequestException('現在のパスワードが間違っています。');
+    }
+    //新しいパスワードをハッシュ化してユーザー情報を保存
+    const hashPassword = await bcrypt.hash(updatePasswordDTO.newPassword, 10);
     user.password = hashPassword;
     return this.userRepository.save(user);
   }

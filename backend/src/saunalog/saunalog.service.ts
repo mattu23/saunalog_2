@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, InternalServerErrorException } from "@nestjs/common";
 import { User } from "src/entities/user.entity";
 import { SaunalogRepository } from "./saunalog.repository";
 import { CreateSaunalogDto } from "src/dto/create-saunalog.dto";
@@ -19,16 +19,25 @@ export class SaunalogService {
   }
 
   async create(CreateSaunalogDto: CreateSaunalogDto, user: User) {
-    return this.SaunalogRepository.createSaunalog(CreateSaunalogDto, user);
+    try {
+      return this.SaunalogRepository.createSaunalog(CreateSaunalogDto, user);
+    } catch {
+      throw new InternalServerErrorException('サウナログの登録に失敗しました。');
+    }
   }
  
-  async update(id, name: string, area: string, rank: number, comment: string) {
+  async updateSaunalog(id, UpdateSaunalogDto) {
     const saunalog = await this.SaunalogRepository.findOne(id);  
-    saunalog.name = name;
-    saunalog.area = area;
-    saunalog.rank = rank;
-    saunalog.comment = comment;
-    return this.SaunalogRepository.save(saunalog);
+    saunalog.name = UpdateSaunalogDto.name;
+    saunalog.area = UpdateSaunalogDto.area;
+    saunalog.rank = UpdateSaunalogDto.rank;
+    saunalog.comment = UpdateSaunalogDto.comment;
+
+    try {
+      return this.SaunalogRepository.save(saunalog);
+    } catch {
+      throw new InternalServerErrorException('サウナログの更新に失敗しました。');
+    }
   }
 
   async delete(id: number) {

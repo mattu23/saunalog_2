@@ -86,8 +86,11 @@ export default {
         alert('ユーザー登録が完了しました。');
         this.$router.push('/auth/login');
       } catch (error) {
-        console.error(error.response.data);
-        alert('入力内容に誤りがあります。もう一度入力内容を確認してください。')
+        if(error.response && error.response.data && error.response.data.message) {
+          alert(`エラー： ${error.response.data.message}`);
+        } else {
+          alert('入力内容に誤りがあります。もう一度入力内容を確認してください。');
+        }
       }
     },
   },

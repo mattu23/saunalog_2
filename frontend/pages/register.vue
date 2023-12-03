@@ -104,7 +104,9 @@ export default {
         this.$router.push('/list');
       } catch(error) {
         console.error(error);
-        alert('登録に失敗しました。もう一度入力内容を確認してください。');
+        if(error.response && error.response.data && error.response.data.message) {
+          alert(`エラー： ${error.response.data.message}`)
+        }
       }
     }
   }

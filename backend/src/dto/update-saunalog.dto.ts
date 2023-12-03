@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsNumber, IsString, Max, MaxLength, Min } from "class-validator";
 
-export class CreateSaunalogDto {
+export class UpdateSaunalogDto {
   @IsString()
   @IsNotEmpty({ message: '名前は入力必須です' })
   @MaxLength(20, { message: '名前は20文字以内で入力してください。' })

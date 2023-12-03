@@ -15,6 +15,7 @@ import { CreateSaunalogDto } from 'src/dto/create-saunalog.dto';
 import { SessionAuthGuard } from 'src/auth/guards/auth.guard';
 import { GetUser } from 'src/auth/decorator/get-user.decorator';
 import { User } from 'src/entities/user.entity';
+import { UpdateSaunalogDto } from 'src/dto/update-saunalog.dto';
 
 
 @Controller('saunalog')
@@ -39,14 +40,8 @@ export class SaunalogController {
     }
 
   @Put(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body('name') name: string,
-    @Body('area') area: string,
-    @Body('rank') rank: number,
-    @Body('comment') comment: string,
-  ) {
-    return this.saunalogService.update(id, name, area, rank, comment);
+  updateSaunalog( @Param('id', ParseIntPipe) id: number, @Body() UpdateSaunalogDto: UpdateSaunalogDto) {
+    return this.saunalogService.updateSaunalog(id, UpdateSaunalogDto);
   }
 
   @Delete(':id')
