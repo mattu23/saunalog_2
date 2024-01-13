@@ -61,7 +61,7 @@ export default {
       }
     },
     async fetchUserData() {
-      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/auth/user`);
+      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/user`);
       this.user = response.data;
     },
     async deleteLog(id) {

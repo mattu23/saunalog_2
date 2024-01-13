@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     async fetchUserData() {
-      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/auth/user`);
+      const response = await this.$axios.get(`${process.env.API_ENDPOINT}/user`);
       this.user = response.data;
       this.user.password = '';
     },
@@ -92,7 +92,7 @@ export default {
         return;
       }
         try{
-          await this.$axios.put(`${process.env.API_ENDPOINT}/auth/updateUserPassword/${this.user.id}`, {
+          await this.$axios.put(`${process.env.API_ENDPOINT}/update-password/${this.user.id}`, {
             password: this.password,
             newPassword: this.newPassword,
           });

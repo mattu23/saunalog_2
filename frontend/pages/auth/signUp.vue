@@ -78,13 +78,13 @@ export default {
   methods: {
     async createUser() {
       try {
-        await this.$axios.post(`${process.env.API_ENDPOINT}/auth/signup`, {
+        await this.$axios.post(`${process.env.API_ENDPOINT}/signup`, {
           username: this.user.name,
           email: this.user.email,
           password: this.user.password,
         });
         alert('ユーザー登録が完了しました。');
-        this.$router.push('/auth/login');
+        this.$router.push('/auth/signin');
       } catch (error) {
         if(error.response && error.response.data && error.response.data.message) {
           alert(`エラー： ${error.response.data.message}`);
