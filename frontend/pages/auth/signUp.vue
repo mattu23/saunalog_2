@@ -84,7 +84,7 @@ export default {
           password: this.user.password,
         });
         alert('ユーザー登録が完了しました。');
-        this.$router.push('/auth/signin');
+        this.$router.push('/auth/login');
       } catch (error) {
         if(error.response && error.response.data && error.response.data.message) {
           alert(`エラー： ${error.response.data.message}`);

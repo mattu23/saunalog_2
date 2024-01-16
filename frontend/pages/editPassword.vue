@@ -92,7 +92,7 @@ export default {
         return;
       }
         try{
-          await this.$axios.put(`${process.env.API_ENDPOINT}/update-password/${this.user.id}`, {
+          await this.$axios.put(`${process.env.API_ENDPOINT}/update-password/`, {
             password: this.password,
             newPassword: this.newPassword,
           });
