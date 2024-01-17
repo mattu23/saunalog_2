@@ -3,56 +3,48 @@
     "name": "editPassword",
     "path": "/editPassword",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/editPassword.vue",
-    "chunkName": "pages/editPassword",
-    "_name": "_3cde4164"
+    "chunkName": "pages/editPassword"
   },
   {
     "name": "editUser",
     "path": "/editUser",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/editUser.vue",
-    "chunkName": "pages/editUser",
-    "_name": "_eb680404"
+    "chunkName": "pages/editUser"
   },
   {
     "name": "list",
     "path": "/list",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/list/index.vue",
-    "chunkName": "pages/list/index",
-    "_name": "_5c6b86ea"
+    "chunkName": "pages/list/index"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/register.vue",
-    "chunkName": "pages/register",
-    "_name": "_c60826a8"
+    "chunkName": "pages/register"
   },
   {
     "name": "auth-login",
     "path": "/auth/login",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/auth/login.vue",
-    "chunkName": "pages/auth/login",
-    "_name": "_a6addaea"
+    "chunkName": "pages/auth/login"
   },
   {
     "name": "auth-signUp",
     "path": "/auth/signUp",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/auth/signUp.vue",
-    "chunkName": "pages/auth/signUp",
-    "_name": "_038fcff4"
+    "chunkName": "pages/auth/signUp"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_049ac9ce"
+    "chunkName": "pages/index"
   },
   {
     "name": "list-id",
     "path": "/list/:id",
     "component": "/Users/matsushitahiroki/Documents/codefile/saunalog_2/frontend/pages/list/_id.vue",
-    "chunkName": "pages/list/_id",
-    "_name": "_a7bb885c"
+    "chunkName": "pages/list/_id"
   }
 ]
